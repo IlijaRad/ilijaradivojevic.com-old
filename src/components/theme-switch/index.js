@@ -9,7 +9,7 @@ export default function ThemeSwitch() {
       return false;
     }
   });
-  console.log(switched);
+
   useEffect(() => {
     const root = window.document.documentElement;
 
