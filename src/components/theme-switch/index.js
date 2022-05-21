@@ -1,36 +1,9 @@
-import { useState, useEffect } from "react";
 import { Switch } from "@headlessui/react";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export default function ThemeSwitch() {
-  const [switched, setSwitched] = useState(() => {
-    if (localStorage.getItem("theme") === "light") {
-      return true;
-    } else {
-      return false;
-    }
-  });
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-
-    if (switched) {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    }
-  }, [switched]);
-
-  if (
-    localStorage.getItem("theme") === "light" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: light)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
+  const { switched, setSwitched } = useContext(ThemeContext);
 
   return (
     <div className="mr-1.5 h-[26px]">

@@ -20,7 +20,7 @@ const NavItem = ({ to, ...rest }) => {
             "underlined focus:outline-none block whitespace-nowrap text-lg font-medium hover:text-black dark:hover:text-white dark:focus:text-white focus:text-black active:text-black dark:active:text-white",
             {
               "active text-black dark:text-white": isActive,
-              "text-gray-500": !isActive,
+              "text-gray-light dark:text-gray-dark": !isActive,
             }
           );
         }}
@@ -40,7 +40,7 @@ const Navbar = () => {
             className="text-black dark:text-white underlined focus:outline-none block whitespace-nowrap text-2xl font-medium transition"
             to={HOME}
           >
-            <h1>Ilija Radivojevic</h1>
+            <h1 className="text-[26px]">Ilija Radivojevic</h1>
           </Link>
         </div>
         <ul className="hidden lg:flex">
