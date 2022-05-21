@@ -20,7 +20,7 @@ const NavItem = ({ to, ...rest }) => {
             "underlined focus:outline-none block whitespace-nowrap text-lg font-medium hover:text-black dark:hover:text-white dark:focus:text-white focus:text-black active:text-black dark:active:text-white",
             {
               "active text-black dark:text-white": isActive,
-              "text-gray-light dark:text-gray-dark": !isActive,
+              "text-gray-500 dark:text-gray-dark": !isActive,
             }
           );
         }}
