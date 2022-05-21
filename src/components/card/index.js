@@ -10,16 +10,16 @@ const Card = ({ title, body, gitHubLink, websiteLink }) => {
       <div className="text-lg text-gray-500 dark:text-gray-dark mb-16 max-w-sm flex-auto prose prose-light dark:prose-dark">
         {body}
       </div>
-      <div className="text-primary inline-flex justify-between w-full items-center text-left font-medium focus:outline-none cursor-pointer transition flex-none">
+      <div className="text-primary inline-flex justify-between w-full items-center text-left font-medium focus:outline-none cursor-pointer transition flex-col xl:flex-row">
         <a
           href={gitHubLink}
-          className="border dark:border-white border-black px-6 py-2 rounded-sm"
+          className="border dark:border-white border-black px-6 py-2 rounded-sm w-full xl:w-auto text-center mb-4 xl:mb-0 dark:hover:border-white dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white hover:border-black transition"
         >
           Github
         </a>
         <a
           href={websiteLink}
-          className="border dark:border-white border-black px-6 py-2 rounded-sm"
+          className="border dark:border-white border-black px-6 py-2 rounded-sm w-full xl:w-auto text-center dark:hover:border-white dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white hover:border-black transition"
         >
           Live Webiste
         </a>
