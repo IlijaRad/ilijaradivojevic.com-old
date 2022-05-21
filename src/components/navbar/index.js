@@ -2,8 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import { HOME, PROJECTS, CONTACT } from "../../constants/routes";
 import clsx from "clsx";
 import ThemeSwitch from "../theme-switch";
-import DarkThemeIcon from "../../assets/icons/dark-theme-icon.svg";
-import LightThemeIcon from "../../assets/icons/light-theme-icon.svg";
+import DarkThemeIcon from "../../assets/icons/DarkThemeIcon";
+import LightThemeIcon from "../../assets/icons/LightThemeIcon";
 
 const LINKS = [
   { name: "About", to: HOME },
@@ -50,10 +50,10 @@ const Navbar = () => {
             </NavItem>
           ))}
         </ul>
-        <div className="flex items-center justify-center">
-          <img src={LightThemeIcon} alt="Light Theme Icon" className="mr-1.5" />
+        <div className="flex gap-x-1.5 items-center justify-center">
+          <LightThemeIcon className="dark:stroke-white stroke-gray-900" />
           <ThemeSwitch />
-          <img src={DarkThemeIcon} alt="Light Theme Icon" />
+          <DarkThemeIcon className="dark:stroke-white stroke-gray-900" />
         </div>
       </nav>
     </div>
