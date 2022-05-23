@@ -13,11 +13,13 @@ module.exports = {
         "gray-dark": "#A9ADC1",
         gray: {
           100: "#f7f7f7",
+          200: "#e6e9ee",
           500: "#535661",
+          600: "#4b4c53",
           900: "#1f2028",
         },
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

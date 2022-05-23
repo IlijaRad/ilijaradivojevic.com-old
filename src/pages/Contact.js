@@ -4,25 +4,23 @@ const Contact = () => {
   const { email, gitHub, linkedIn } = links;
 
   return (
-    <div className="max-w-7xl ml-[10vw] pt-20">
-      <h1 className="leading-tight text-4xl md:text-6xl mb-10">
+    <div className="max-w-7xl md:ml-[10vw] pt-20">
+      <h1 className="leading-tight text-3xl sm:text-4xl lg:text-6xl  mb-10">
         Contact Information:
       </h1>
-      <ul className="text-gray-light dark:text-gray-dark ml-4">
-        <li className="text-xl mb-3">
+      <ul className="text-gray-light dark:text-gray-dark md:ml-4">
+        <li className="text-base md:text-xl mb-3">
           <span className="font-medium text-black dark:text-white">
             Email:{" "}
           </span>
           <a
-            target="_blank"
-            rel="noreferrer"
             href={`mailto:${email}`}
             className="ml-1 underlined focus:outline-none overflow-hidden dark:hover:text-white hover:text-black transition"
           >
             {email}
           </a>
         </li>
-        <li className="text-xl mb-3">
+        <li className="text-base md:text-xl mb-3">
           <span className="font-medium text-black dark:text-white">
             Github:{" "}
           </span>
@@ -35,7 +33,7 @@ const Contact = () => {
             {gitHub}
           </a>
         </li>
-        <li className="text-xl">
+        <li className="text-base md:text-xl text-xl">
           <span className="font-medium text-black dark:text-white">
             LinkedIn:{" "}
           </span>
