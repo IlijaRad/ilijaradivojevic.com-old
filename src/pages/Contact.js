@@ -33,7 +33,7 @@ const Contact = () => {
             {gitHub}
           </a>
         </li>
-        <li className="text-base md:text-xl text-xl">
+        <li className="text-base md:text-xl">
           <span className="font-medium text-black dark:text-white">
             LinkedIn:{" "}
           </span>

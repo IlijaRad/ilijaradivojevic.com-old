@@ -4,7 +4,7 @@ import clsx from "clsx";
 import ThemeSwitch from "../theme-switch";
 import DarkThemeIcon from "../../assets/icons/DarkThemeIcon";
 import LightThemeIcon from "../../assets/icons/LightThemeIcon";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
 const LINKS = [
@@ -43,16 +43,29 @@ const MobileNavLink = ({ to, ...rest }) => (
 
 const Navbar = () => {
   const { switched, setSwitched } = useContext(ThemeContext);
-  const [mobileNavClosed, setMobileNavClosed] = useState(true);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const code = e.keyCode ? e.keyCode : e.which;
+      console.log(code, mobileNavOpen);
+      // ESC key
+      if (code === 27 && mobileNavOpen) {
+        setMobileNavOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileNavOpen]);
 
   const toggleMobileNav = () => {
-    setMobileNavClosed((mobileNavClosed) => !mobileNavClosed);
+    setMobileNavOpen((mobileNavOpen) => !mobileNavOpen);
   };
 
   const toggleSwitched = () => {
     setSwitched((switched) => !switched);
   };
-
   return (
     <div className="py-9 lg:py-12">
       <nav className="text-black mx-auto flex max-w-8xl items-center justify-between">
@@ -80,24 +93,22 @@ const Navbar = () => {
           <div className="navigation">
             <input
               type="checkbox"
-              className="navigation__checkbox"
+              className="peer navigation__checkbox"
               id="navi-toggle"
-              checked={mobileNavClosed}
-              onChange={() =>
-                setMobileNavClosed((mobileNavClosed) => !mobileNavClosed)
-              }
+              checked={mobileNavOpen}
+              onChange={() => toggleMobileNav()}
             />
 
             <label
               htmlFor="navi-toggle"
-              className="navigation__button focus-visible:border-black dark:focus-visible: hover:border-black dark:hover:border-white border-gray-200 dark:border-gray-600 text-black focus:outline-none border-2 transition dark:text-white"
+              className="navigation__button text-black dark:text-white border-2 border-gray-200 outline-none dark:border-gray-600 hover:border-black dark:hover:border-white peer-focus:border-black dark:peer-focus:border-white transition"
             >
               <span className="navigation__icon bg-black after:bg-black before:bg-black dark:bg-white dark:after:bg-white dark:before:bg-white">
                 &nbsp;
               </span>
             </label>
 
-            <div className="navigation__background dark:bg-gray-900 bg-white">
+            <div className={"navigation__background dark:bg-gray-900 bg-white"}>
               &nbsp;
             </div>
 
@@ -115,7 +126,7 @@ const Navbar = () => {
                 ))}
                 <div
                   onClick={() => toggleSwitched()}
-                  className="navigation__link hover:text-white dark:hover:text-black whitespace-nowrap text-ellipsis overflow-hidden cursor-pointer"
+                  className="navigation__theme-toggler hover:text-white dark:hover:text-black whitespace-nowrap text-ellipsis overflow-hidden cursor-pointer"
                 >
                   <div className="flex items-center self-center first:stroke-gray-900 dark:first:stroke-white first:hover:stroke-white dark:first:hover:stroke-gray-900 px-2">
                     {switched ? (
