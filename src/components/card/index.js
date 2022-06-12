@@ -11,10 +11,14 @@ const Card = ({
   return (
     <a
       href={websiteLink}
-      class="flex flex-col overflow-hidden shadow-lg rounded-lg bg-gray-100 dark:bg-secondary"
+      class="flex flex-col overflow-hidden shadow-lg rounded-lg bg-gray-100 dark:bg-secondary border border-gray-300 dark:border-gray-600"
     >
       <div class="flex-shrink-0">
-        <img class="h-[200px] w-full object-cover" src={imgSrc} alt={imgAlt} />
+        <img
+          class="h-[200px] w-full object-cover border-b border-gray-300 dark:border-gray-600"
+          src={imgSrc}
+          alt={imgAlt}
+        />
       </div>
       <div class="flex-1 p-6 flex flex-col justify-between">
         <div class="flex-1">
