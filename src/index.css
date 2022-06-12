@@ -253,3 +253,11 @@ html {
 .dark .icon-parent:hover > svg {
   fill: black;
 }
+
+.icon-parent-stroke:hover > svg {
+  stroke: white;
+}
+
+.dark .icon-parent-stroke:hover > svg {
+  stroke: black;
+}
