@@ -4,7 +4,7 @@ import { projects } from "../constants/projectData";
 const Projects = () => {
   return (
     <div className="mx-6 md:mx-[10vw]">
-      <div className="grid grid-cols-4 gap-x-4 md:grid-cols-8 xl:grid-cols-12 md:gap-x-6 mx-auto max-w-7xl gap-y-4 mb-16 pt-20">
+      <div className="mt-12 grid max-w-lg mx-auto lg:max-w-none lg:grid-cols-3 gap-5">
         {projects.map(
           ({ id, title, body, gitHubLink, websiteLink, imgSrc, imgAlt }) => (
             <Card
