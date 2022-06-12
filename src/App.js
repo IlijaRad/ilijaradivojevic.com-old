@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Wrapper from "./components/wrapper";
 import ThemeProvider from "./context/ThemeContext";
 import * as ROUTES from "./constants/routes";
+import Loading from "./pages/Loading";
 
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -13,7 +14,7 @@ const App = () => {
   return (
     <ThemeProvider>
       <Router>
-        <Suspense fallback={<div>Loading</div>}>
+        <Suspense fallback={<Loading />}>
           <Routes>
             <Route element={<Wrapper />}>
               <Route path={ROUTES.HOME} element={<About />} />
