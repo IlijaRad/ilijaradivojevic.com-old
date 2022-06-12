@@ -4,7 +4,7 @@ const Contact = () => {
   const { email, gitHub, linkedIn } = links;
 
   return (
-    <div className="relative mx-[10vw]">
+    <div className="mx-6 md:mx-[10vw]">
       <div className="max-w-7xl md:ml-[10vw] pt-20">
         <h1 className="leading-tight text-3xl sm:text-4xl lg:text-6xl mb-10">
           Contact Information:

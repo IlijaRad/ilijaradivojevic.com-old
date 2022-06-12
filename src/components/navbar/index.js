@@ -76,7 +76,7 @@ const Navbar = () => {
     setSwitched((switched) => !switched);
   };
   return (
-    <div className="px-[5vw] py-9 lg:py-12">
+    <div className="px-6 md:px-[5vw] py-9 lg:py-12">
       <nav className="text-black mx-auto flex max-w-[96rem] items-center justify-between">
         <div>
           <Link
