@@ -30,7 +30,7 @@ const About = () => {
             <span className="mr-8 text-xl font-medium peer">
               You can find my resume here
             </span>
-            <div className="border-2 border-gray-200 outline-none dark:border-gray-600 hover:border-black dark:hover:border-white peer-hover:border-black dark:peer-hover:border-white transition rounded-full w-[60px] h-[60px] flex items-center justify-center">
+            <div className="border-2 border-gray-200 outline-none dark:border-gray-600 hover:border-black dark:hover:border-white peer-hover:border-black dark:peer-hover:border-white transition rounded-full w-[60px] h-[60px] flex items-center justify-center shrink-0">
               <RightArrow />
             </div>
           </a>
