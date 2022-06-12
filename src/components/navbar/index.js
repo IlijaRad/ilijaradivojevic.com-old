@@ -44,19 +44,28 @@ const MobileNavLink = ({ to, ...rest }) => (
 const Navbar = () => {
   const { switched, setSwitched } = useContext(ThemeContext);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [mobileMenuLinksVisible, setMobileMenuLinksVisible] = useState(true);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       const code = e.keyCode ? e.keyCode : e.which;
-      console.log(code, mobileNavOpen);
       // ESC key
       if (code === 27 && mobileNavOpen) {
         setMobileNavOpen(false);
       }
     };
-
+    let id;
+    if (!mobileNavOpen) {
+      id = setTimeout(() => setMobileMenuLinksVisible(false), 800);
+    } else {
+      setMobileMenuLinksVisible(true);
+    }
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      if (id) clearTimeout(id);
+    };
   }, [mobileNavOpen]);
 
   const toggleMobileNav = () => {
@@ -67,8 +76,8 @@ const Navbar = () => {
     setSwitched((switched) => !switched);
   };
   return (
-    <div className="py-9 lg:py-12">
-      <nav className="text-black mx-auto flex max-w-8xl items-center justify-between">
+    <div className="px-[5vw] py-9 lg:py-12">
+      <nav className="text-black mx-auto flex max-w-[96rem] items-center justify-between">
         <div>
           <Link
             className="text-black dark:text-white underlined focus:outline-none block whitespace-nowrap text-2xl font-medium transition"
@@ -98,7 +107,6 @@ const Navbar = () => {
               checked={mobileNavOpen}
               onChange={() => toggleMobileNav()}
             />
-
             <label
               htmlFor="navi-toggle"
               className="navigation__button text-black dark:text-white border-2 border-gray-200 outline-none dark:border-gray-600 hover:border-black dark:hover:border-white peer-focus:border-black dark:peer-focus:border-white transition"
@@ -107,13 +115,17 @@ const Navbar = () => {
                 &nbsp;
               </span>
             </label>
-
             <div className={"navigation__background dark:bg-gray-900 bg-white"}>
               &nbsp;
             </div>
-
             <nav className="navigation__nav">
-              <ul className="navigation__list text-black dark:text-white">
+              <ul
+                className={
+                  mobileMenuLinksVisible
+                    ? "navigation__list text-black dark:text-white"
+                    : "hidden"
+                }
+              >
                 {LINKS.map((link, ix) => (
                   <MobileNavLink
                     key={link.to}

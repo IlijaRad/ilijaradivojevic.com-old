@@ -9,7 +9,9 @@ export default function ThemeSwitch() {
     <div>
       <Switch
         checked={switched}
-        onChange={() => setSwitched((switched) => !switched)}
+        onChange={() =>
+          setTimeout(() => setSwitched((switched) => !switched), 300)
+        }
         className={`${
           !switched ? "bg-gray-900 dark:bg-gray-300/20" : "bg-gray-200"
         }
