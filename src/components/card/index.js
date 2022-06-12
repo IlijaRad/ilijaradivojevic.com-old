@@ -1,3 +1,5 @@
+import GithubIcon from "../../assets/icons/GithubIcon";
+
 const Card = ({
   title,
   body,
@@ -8,7 +10,7 @@ const Card = ({
 }) => {
   return (
     <a
-      href={gitHubLink}
+      href={websiteLink}
       class="flex flex-col overflow-hidden shadow-lg rounded-lg bg-gray-100 dark:bg-secondary"
     >
       <div class="flex-shrink-0">
@@ -23,18 +25,13 @@ const Card = ({
             {body}
           </p>
         </div>
-        <div className="mt-6 text-primary flex flex-wrap justify-between w-full items-center text-left font-medium focus:outline-none cursor-pointer transition flex-col xl:flex-row">
+        <div className="mt-6 text-primary justify-between w-full items-center text-left font-medium focus:outline-none cursor-pointer transition">
           <a
             href={gitHubLink}
-            className="border dark:border-gray-600 border-gray-300 px-6 py-2 rounded-md w-full 2xl:w-auto text-center mb-4 dark:hover:border-white dark:hover:bg-white dark:hover:text-black hover:bg-gray-900 hover:text-white hover:border-gray-900 transition"
+            className="icon-parent w-full px-6 py-2 mb-4 flex items-center justify-center text-center rounded-md border dark:border-gray-600 border-gray-300 dark:hover:border-white dark:hover:bg-white dark:hover:text-black hover:bg-gray-900 hover:text-white hover:border-gray-900 dark:hover:fill-black transition"
           >
-            Github
-          </a>
-          <a
-            href={websiteLink}
-            className="border dark:border-gray-600 border-gray-300 px-6 py-2 mb-4 rounded-md w-full 2xl:w-auto text-center dark:hover:border-white dark:hover:bg-white dark:hover:text-black hover:bg-gray-900 hover:text-white hover:border-gray-900 transition"
-          >
-            Live Website
+            <GithubIcon className="h-5 w-5 dark:fill-white fill-black mr-2 transition-all" />
+            View source
           </a>
         </div>
       </div>

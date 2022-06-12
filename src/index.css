@@ -245,3 +245,11 @@ html {
   top: 0;
   transform: rotate(-135deg);
 }
+
+.icon-parent:hover > svg {
+  fill: white;
+}
+
+.dark .icon-parent:hover > svg {
+  fill: black;
+}
