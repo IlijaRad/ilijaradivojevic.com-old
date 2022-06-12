@@ -16,7 +16,7 @@ const Card = ({
       </div>
       <div class="flex-1 p-6 flex flex-col justify-between">
         <div class="flex-1">
-          <h3 class="mt-2 text-xl leading-7 font-bold text-black dark:text-white">
+          <h3 class="mt-2 text-xl leading-7 font-semibold text-black dark:text-white">
             {title}
           </h3>
           <p class="mt-3 leading-6 text-base line-clamp-4 text-gray-500 dark:text-gray-dark prose">
