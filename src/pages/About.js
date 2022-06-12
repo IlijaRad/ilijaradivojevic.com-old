@@ -1,4 +1,7 @@
 import DeveloperIcon from "../assets/images/DeveloperIllustration.svg";
+import RightArrow from "../assets/icons/RightArrow";
+import Resume from "../assets/documents/Resume.pdf";
+
 const About = () => {
   return (
     <div className="relative mx-[10vw]">
@@ -18,6 +21,19 @@ const About = () => {
             I build front-ends with simple modern UIs using latest web
             technologies.
           </p>
+          <a
+            href={Resume}
+            className="text-primary inline-flex items-center text-left font-medium focus:outline-none cursor-pointer transition mt-20"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="mr-8 text-xl font-medium peer">
+              You can find my resume here
+            </span>
+            <div className="border-2 border-gray-200 outline-none dark:border-gray-600 hover:border-black dark:hover:border-white peer-hover:border-black dark:peer-hover:border-white transition rounded-full w-[60px] h-[60px] flex items-center justify-center">
+              <RightArrow />
+            </div>
+          </a>
         </div>
       </div>
     </div>
