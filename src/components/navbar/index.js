@@ -131,7 +131,9 @@ const Navbar = () => {
                   <MobileNavLink
                     key={link.to}
                     to={link.to}
-                    onClick={() => toggleMobileNav()}
+                    onClick={() => {
+                      if (mobileNavOpen) toggleMobileNav();
+                    }}
                   >
                     <span>{`0${ix + 1}`}</span>
                     {link.name}
