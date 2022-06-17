@@ -137,7 +137,10 @@ const Navbar = () => {
                   </MobileNavLink>
                 ))}
                 <div
-                  onClick={() => toggleSwitched()}
+                  onClick={() => {
+                    toggleSwitched();
+                    toggleMobileNav();
+                  }}
                   className="navigation__theme-toggler hover:text-white dark:hover:text-black whitespace-nowrap text-ellipsis overflow-hidden cursor-pointer"
                 >
                   <div className="flex items-center self-center first:stroke-gray-900 dark:first:stroke-white first:hover:stroke-white dark:first:hover:stroke-gray-900 px-2">
