@@ -75,6 +75,7 @@ const Navbar = () => {
   const toggleSwitched = () => {
     setSwitched((switched) => !switched);
   };
+
   return (
     <div className="px-6 md:px-[5vw] py-9 lg:py-12">
       <nav className="text-black mx-auto flex max-w-[96rem] items-center justify-between">
@@ -138,8 +139,10 @@ const Navbar = () => {
                 ))}
                 <div
                   onClick={() => {
-                    toggleSwitched();
-                    toggleMobileNav();
+                    if (mobileNavOpen) {
+                      toggleSwitched();
+                      toggleMobileNav();
+                    }
                   }}
                   className="navigation__theme-toggler hover:text-white dark:hover:text-black whitespace-nowrap text-ellipsis overflow-hidden cursor-pointer"
                 >
