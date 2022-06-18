@@ -3,8 +3,8 @@ import { Outlet } from "react-router-dom";
 
 const Wrapper = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white flex justify-center">
-      <div className="flex flex-col h-full max-w-screen-2xl w-full">
+    <div className="flex min-h-screen justify-center bg-white text-black dark:bg-gray-900 dark:text-white">
+      <div className="flex h-full w-full max-w-screen-2xl flex-col">
         <Navbar />
         <Outlet />
       </div>

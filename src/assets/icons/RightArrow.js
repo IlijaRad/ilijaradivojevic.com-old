@@ -1,6 +1,6 @@
 const RightArrow = (props) => (
   <svg
-    className="transform -rotate-90"
+    className="-rotate-90 transform"
     width={32}
     height={32}
     fill="none"

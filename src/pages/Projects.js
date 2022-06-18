@@ -3,11 +3,12 @@ import { projects } from "../constants/projectData";
 
 const Projects = () => {
   return (
-    <div className="mx-6 md:mx-[10vw]">
-      <div className="my-12 grid max-w-lg mx-auto lg:max-w-none lg:grid-cols-3 gap-5">
+    <div className="mx-6 pt-24 md:mx-[10vw]">
+      <div className="mx-auto mb-16 grid max-w-lg gap-x-5 gap-y-7 lg:max-w-none lg:grid-cols-3">
         {projects.map(
           ({ id, title, body, gitHubLink, websiteLink, imgSrc, imgAlt }) => (
             <Card
+              id={id}
               title={title}
               body={body}
               gitHubLink={gitHubLink}

@@ -4,33 +4,33 @@ import Resume from "../assets/documents/Resume.pdf";
 
 const About = () => {
   return (
-    <div className="mx-6 md:mx-[10vw]">
-      <div className="grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6 mx-auto max-w-7xl lg: mb-24 h-auto pt-24 lg:min-h-[40rem] lg:pb-12 lg:mb-64">
-        <div className="col-span-full mb-12 lg:mb-0 flex items-center justify-center lg:col-span-7 lg:col-start-6 lg:-mt-24 lg:-mr-5vw lg:px-0">
+    <div className="mx-6 pt-24 md:mx-[10vw]">
+      <div className="mx-auto mb-24 grid h-auto max-w-7xl grid-cols-4 gap-x-4 md:grid-cols-8 lg:mb-64 lg:min-h-[40rem] lg:grid-cols-12 lg:gap-x-6 lg:pb-12">
+        <div className="lg:-mr-5vw col-span-full mb-12 flex items-center justify-center lg:col-span-7 lg:col-start-6 lg:mb-0 lg:-mt-24 lg:px-0">
           <img
-            className="h-auto w-full object-contain max-h-75vh"
+            className="max-h-75vh h-auto w-full object-contain"
             src={DeveloperIcon}
             alt=""
           />
         </div>
-        <div className="col-span-full pt-6 lg:col-start-1 lg:row-start-1 lg:flex lg:h-full lg:flex-col lg:col-span-5">
-          <h2 className="leading-tight text-3xl md:text-4xl text-black dark:text-white">
+        <div className="col-span-full pt-6 lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:flex lg:h-full lg:flex-col">
+          <h2 className="text-3xl leading-tight text-black dark:text-white md:text-4xl">
             Hi, I am Ilija Radivojević, I am a front-end developer.
           </h2>
-          <p className="leading-tight text-3xl md:text-4xl text-gray-400 dark:text-gray-dark mt-3">
+          <p className="mt-3 text-3xl leading-tight text-gray-400 dark:text-gray-dark md:text-4xl">
             I build front-ends with simple modern UIs using latest web
             technologies.
           </p>
           <a
             href={Resume}
-            className="text-primary inline-flex items-center text-left font-medium focus:outline-none cursor-pointer transition mt-20"
+            className="text-primary mt-20 inline-flex cursor-pointer items-center text-left font-medium transition focus:outline-none"
             target="_blank"
             rel="noreferrer"
           >
-            <span className="mr-8 text-xl font-medium peer">
+            <span className="peer mr-8 text-xl font-medium">
               You can find my resume here
             </span>
-            <div className="border-2 border-gray-200 outline-none dark:border-gray-600 hover:border-black dark:hover:border-white peer-hover:border-black dark:peer-hover:border-white transition rounded-full w-[60px] h-[60px] flex items-center justify-center shrink-0">
+            <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full border-2 border-gray-200 outline-none transition hover:border-black peer-hover:border-black dark:border-gray-600 dark:hover:border-white dark:peer-hover:border-white">
               <RightArrow />
             </div>
           </a>

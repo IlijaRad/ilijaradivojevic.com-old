@@ -5,21 +5,21 @@ import GelpImg from "../assets/images/gelp.jpg";
 export const projects = [
   {
     id: 1,
-    title: "Instagram Clone",
-    body: "Instagram Clone website with authentication made using React, Tailwind CSS & Firebase. Features include: user registration and login/logout, viewing profiles, following users, liking and commenting.",
-    gitHubLink: "https://github.com/IlijaRad/Instagram",
-    websiteLink: "https://instagram-clone-app7.netlify.app/",
-    imgSrc: InstagramImg,
-    imgAlt: "Instagram Clone picture",
-  },
-  {
-    id: 2,
     title: "Netflix clone",
     body: "Netflix Clone website with authentication made using React, Tailwind CSS, Firebase, Jest and React Testing Library. Features include: user registration and login/logout, searching for films and series, previewing films/series.",
     gitHubLink: "https://github.com/IlijaRad/Netflix/",
     websiteLink: "https://netflix-clone-app7.netlify.app/",
     imgSrc: NetflixImg,
     imgAlt: "Netflix Clone picture",
+  },
+  {
+    id: 2,
+    title: "Instagram Clone",
+    body: "Instagram Clone website with authentication made using React, Tailwind CSS & Firebase. Features include: user registration and login/logout, viewing profiles, following users, liking and commenting.",
+    gitHubLink: "https://github.com/IlijaRad/Instagram",
+    websiteLink: "https://instagram-clone-app7.netlify.app/",
+    imgSrc: InstagramImg,
+    imgAlt: "Instagram Clone picture",
   },
   {
     id: 3,

@@ -18,7 +18,7 @@ const DesktopNavLink = ({ to, ...rest }) => (
     <NavLink
       className={({ isActive }) => {
         return clsx(
-          "underlined focus:outline-none block whitespace-nowrap text-lg font-medium hover:text-black dark:hover:text-white dark:focus:text-white focus:text-black active:text-black dark:active:text-white",
+          "underlined block whitespace-nowrap text-lg font-medium hover:text-black focus:text-black focus:outline-none active:text-black dark:hover:text-white dark:focus:text-white dark:active:text-white",
           {
             "active text-black dark:text-white": isActive,
             "text-gray-500 dark:text-gray-dark": !isActive,
@@ -34,7 +34,7 @@ const DesktopNavLink = ({ to, ...rest }) => (
 const MobileNavLink = ({ to, ...rest }) => (
   <li className="navigation__item">
     <Link
-      className="navigation__link hover:text-white dark:hover:text-black whitespace-nowrap text-ellipsis overflow-hidden"
+      className="navigation__link min-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap hover:text-white dark:hover:text-black"
       to={to}
       {...rest}
     />
@@ -77,11 +77,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="px-6 md:px-[5vw] py-9 lg:py-12">
-      <nav className="text-black mx-auto flex max-w-[96rem] items-center justify-between">
+    <div className="px-6 py-9 md:px-[5vw] lg:py-12">
+      <nav className="mx-auto flex max-w-[96rem] items-center justify-between text-black">
         <div>
           <Link
-            className="text-black dark:text-white underlined focus:outline-none block whitespace-nowrap text-2xl font-medium transition"
+            className="underlined block whitespace-nowrap text-2xl font-medium text-black transition focus:outline-none dark:text-white"
             to={HOME}
           >
             <h1 className="text-[26px]">Ilija Radivojevic</h1>
@@ -94,29 +94,29 @@ const Navbar = () => {
             </DesktopNavLink>
           ))}
         </ul>
-        <div className="hidden lg:flex gap-x-1.5 items-center justify-center">
-          <LightThemeIcon className="dark:stroke-white stroke-gray-900" />
+        <div className="hidden items-center justify-center gap-x-1.5 lg:flex">
+          <LightThemeIcon className="stroke-gray-900 dark:stroke-white" />
           <ThemeSwitch />
-          <DarkThemeIcon className="dark:stroke-white stroke-gray-900" />
+          <DarkThemeIcon className="stroke-gray-900 dark:stroke-white" />
         </div>
         <div className="lg:hidden">
           <div className="navigation">
             <input
               type="checkbox"
-              className="peer navigation__checkbox"
+              className="navigation__checkbox peer"
               id="navi-toggle"
               checked={mobileNavOpen}
               onChange={() => toggleMobileNav()}
             />
             <label
               htmlFor="navi-toggle"
-              className="navigation__button text-black dark:text-white border-2 border-gray-200 outline-none dark:border-gray-600 hover:border-black dark:hover:border-white peer-focus:border-black dark:peer-focus:border-white transition"
+              className="navigation__button border-2 border-gray-200 text-black outline-none transition hover:border-black peer-focus:border-black dark:border-gray-600 dark:text-white dark:hover:border-white dark:peer-focus:border-white"
             >
-              <span className="navigation__icon bg-black after:bg-black before:bg-black dark:bg-white dark:after:bg-white dark:before:bg-white">
+              <span className="navigation__icon bg-black before:bg-black after:bg-black dark:bg-white dark:before:bg-white dark:after:bg-white">
                 &nbsp;
               </span>
             </label>
-            <div className={"navigation__background dark:bg-gray-900 bg-white"}>
+            <div className={"navigation__background bg-white dark:bg-gray-900"}>
               &nbsp;
             </div>
             <nav className="navigation__nav">
@@ -135,7 +135,6 @@ const Navbar = () => {
                       if (mobileNavOpen) toggleMobileNav();
                     }}
                   >
-                    <span>{`0${ix + 1}`}</span>
                     {link.name}
                   </MobileNavLink>
                 ))}
@@ -146,13 +145,13 @@ const Navbar = () => {
                       toggleMobileNav();
                     }
                   }}
-                  className="navigation__theme-toggler hover:text-white dark:hover:text-black whitespace-nowrap text-ellipsis overflow-hidden cursor-pointer"
+                  className="navigation__theme-toggler -ml-[18px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap hover:text-white dark:hover:text-black"
                 >
-                  <div className="flex items-center self-center first:stroke-gray-900 dark:first:stroke-white first:hover:stroke-white dark:first:hover:stroke-gray-900 px-2">
+                  <div className="flex items-center justify-between py-4 px-8 first:stroke-gray-900 first:hover:stroke-white dark:first:stroke-white dark:first:hover:stroke-gray-900">
                     {switched ? (
-                      <DarkThemeIcon className="mr-6" />
+                      <DarkThemeIcon className="mr-4" />
                     ) : (
-                      <LightThemeIcon className="mr-6" />
+                      <LightThemeIcon className="mr-4" />
                     )}
                     {switched ? "Dark" : "Light"} mode
                   </div>
