@@ -4,7 +4,7 @@ const Contact = () => {
   const { email, gitHub, linkedIn } = links;
 
   return (
-    <div className="mx-6 pt-24 md:mx-[10vw]">
+    <>
       <h1 className="mb-10 text-3xl leading-tight sm:text-4xl lg:text-6xl">
         Contact Information:
       </h1>
@@ -47,7 +47,7 @@ const Contact = () => {
           </a>
         </li>
       </ul>
-    </div>
+    </>
   );
 };
 

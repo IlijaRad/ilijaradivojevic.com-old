@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Wrapper from "./components/wrapper";
+import PageWrapper from "./components/page-wrapper";
 import ThemeProvider from "./context/ThemeContext";
 import * as ROUTES from "./constants/routes";
 import Loading from "./pages/Loading";
@@ -17,7 +17,7 @@ const App = () => {
       <Router>
         <Suspense fallback={<Loading />}>
           <Routes>
-            <Route element={<Wrapper />}>
+            <Route element={<PageWrapper />}>
               <Route path={ROUTES.HOME} element={<About />} />
               <Route path={ROUTES.PROJECT} element={<Project />} />
               <Route path={ROUTES.PROJECTS} element={<Projects />} />

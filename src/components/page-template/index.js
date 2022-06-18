@@ -1,14 +1,14 @@
 import Navbar from "../navbar";
-import { Outlet } from "react-router-dom";
+import MainContainer from "../main-cotaniner";
 
-const Wrapper = () => {
+const PageTemplate = ({ children }) => {
   return (
     <div className="flex min-h-screen justify-center bg-white text-black dark:bg-gray-900 dark:text-white">
       <div className="flex h-full w-full max-w-screen-2xl flex-col">
         <Navbar />
-        <Outlet />
+        <MainContainer>{children}</MainContainer>
       </div>
     </div>
   );
 };
-export default Wrapper;
+export default PageTemplate;
