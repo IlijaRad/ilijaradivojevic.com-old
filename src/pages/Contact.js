@@ -17,7 +17,7 @@ const Contact = () => {
 
   const ContactLink = ({ text, link, ...restProps }) => {
     return (
-      <li className="mb-3 md:text-xl">
+      <li className="mb-3 md:text-lg">
         <span className="font-medium">{text}</span>
         <a
           {...restProps}

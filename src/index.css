@@ -266,3 +266,60 @@ html {
 .dark .icon-parent-stroke:hover > svg {
   stroke: black;
 }
+
+/* Carousel */
+
+.slider-list {
+  transition: transform 1s ease 0s !important;
+}
+
+.slider-control-centerleft {
+  @apply -left-[40px] flex h-[36px] w-[36px] shrink-0 items-center justify-center rounded-full border-2 border-transparent outline-none transition md:-left-[74px]  md:h-[50px] md:w-[50px] md:border-gray-200 md:first-letter:hover:border-black md:dark:border-gray-600 md:dark:hover:border-white !important;
+}
+
+.slider-control-centerright {
+  @apply -right-[40px] flex h-[36px] w-[36px] shrink-0 items-center justify-center rounded-full border-2 border-transparent outline-none transition md:-right-[74px] md:h-[50px] md:w-[50px] md:border-gray-200 md:hover:border-black md:dark:border-gray-600 md:dark:hover:border-white !important;
+}
+
+.slider-control-centerleft button,
+.slider-control-centerright button {
+  background-color: transparent !important;
+  background-image: url(assets/icons/Arrow.svg) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  color: transparent !important;
+  @apply h-6 w-6 p-0 md:h-8 md:w-8;
+}
+
+.slider-control-centerleft button {
+  transform: rotate(90deg) !important;
+}
+
+.slider-control-centerright button {
+  transform: rotate(270deg) !important;
+}
+
+.dark .slider-control-centerleft button,
+.dark .slider-control-centerright button {
+  background-image: url(assets/icons/ArrowWhite.svg) !important;
+}
+
+.slider-frame,
+.slider-container {
+  @apply w-full max-w-[1400px] !important;
+}
+
+.slider-container {
+  @apply mx-[30px] md:mx-[75px];
+}
+
+.slider-control-bottomcenter {
+  bottom: -40px !important;
+}
+
+.dark .paging-item button {
+  fill: white !important;
+}
+.paging-item:not(:last-child) button {
+  margin-right: 12px;
+}

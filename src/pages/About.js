@@ -1,16 +1,12 @@
-import DeveloperIcon from "../assets/images/DeveloperIllustration.svg";
+import DeveloperIllustration from "../assets/images/DeveloperIllustration";
 import RightArrow from "../assets/icons/RightArrow";
 import Resume from "../assets/documents/Resume.pdf";
 
 const About = () => {
   return (
     <div className="mx-auto mb-24 grid h-auto max-w-7xl grid-cols-4 gap-x-4 md:grid-cols-8 lg:mb-64 lg:min-h-[40rem] lg:grid-cols-12 lg:gap-x-6 lg:pb-12">
-      <div className="lg:-mr-5vw col-span-full mb-12 flex items-center justify-center lg:col-span-7 lg:col-start-6 lg:mb-0 lg:-mt-24 lg:px-0">
-        <img
-          className="max-h-75vh h-auto w-full object-contain"
-          src={DeveloperIcon}
-          alt=""
-        />
+      <div className="lg:-mr-5vw col-span-full mb-12 flex items-center lg:col-span-7 lg:col-start-6 lg:mb-0 lg:-mt-[240px]">
+        <DeveloperIllustration />
       </div>
       <div className="col-span-full pt-6 lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:flex lg:h-full lg:flex-col">
         <h2 className="text-3xl leading-tight text-black dark:text-white md:text-4xl">

@@ -78,7 +78,7 @@ const Navbar = () => {
 
   return (
     <div className="px-6 py-9 md:px-[5vw] lg:py-12">
-      <nav className="mx-auto flex max-w-[96rem] items-center justify-between text-black">
+      <nav className="mx-auto flex items-center justify-between text-black">
         <div>
           <Link
             className="underlined block whitespace-nowrap text-2xl font-medium text-black transition focus:outline-none dark:text-white"

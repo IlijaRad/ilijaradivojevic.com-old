@@ -1,5 +1,5 @@
 const MainContainer = ({ children }) => {
-  return <div className="mx-6 pt-24 md:mx-[10vw]">{children}</div>;
+  return <div className="mx-6 mx-[5vw] pt-24">{children}</div>;
 };
 
 export default MainContainer;
