@@ -1,51 +1,55 @@
+import { useLayoutEffect, useState } from "react";
 import { SOCIAL_LINKS as links } from "../constants/socialLinks";
 
 const Contact = () => {
   const { email, gitHub, linkedIn } = links;
+  const [width, setWidth] = useState();
+
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [width]);
+
+  const ContactLink = ({ text, link, ...restProps }) => {
+    return (
+      <li className="mb-3 md:text-xl">
+        <span className="font-medium">{text}</span>
+        <a
+          {...restProps}
+          className="underlined ml-1 overflow-hidden text-gray-500 transition hover:text-black focus:outline-none dark:text-gray-dark dark:hover:text-white"
+        >
+          {link}
+        </a>
+      </li>
+    );
+  };
 
   return (
     <>
-      <h1 className="mb-10 text-3xl leading-tight sm:text-4xl lg:text-6xl">
+      <h1 className="mb-10 text-3xl leading-tight sm:text-4xl lg:text-5xl">
         Contact Information:
       </h1>
-      <ul className="text-gray-light dark:text-gray-dark md:ml-4">
-        <li className="mb-3 text-base md:text-xl">
-          <span className="font-medium text-black dark:text-white">
-            Email:{" "}
-          </span>
-          <a
-            href={`mailto:${email}`}
-            className="underlined ml-1 overflow-hidden transition hover:text-black focus:outline-none dark:hover:text-white"
-          >
-            {email}
-          </a>
-        </li>
-        <li className="mb-3 text-base md:text-xl">
-          <span className="font-medium text-black dark:text-white">
-            Github:{" "}
-          </span>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={gitHub}
-            className="underlined ml-1 overflow-hidden transition hover:text-black focus:outline-none dark:hover:text-white"
-          >
-            {gitHub}
-          </a>
-        </li>
-        <li className="text-base md:text-xl">
-          <span className="font-medium text-black dark:text-white">
-            LinkedIn:{" "}
-          </span>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={linkedIn}
-            className="underlined ml-1 overflow-hidden transition hover:text-black focus:outline-none dark:hover:text-white"
-          >
-            {linkedIn}
-          </a>
-        </li>
+      <ul className="md:ml-4">
+        <ContactLink text="Email: " link={email} href={`mailto:${email}`} />
+        <ContactLink
+          text="Github: "
+          link={gitHub}
+          href={gitHub}
+          target="_blank"
+          rel="noreferrer"
+        />
+        <ContactLink
+          text="LinkedIn: "
+          link={linkedIn}
+          href={linkedIn}
+          target="_blank"
+          rel="noreferrer"
+        />
       </ul>
     </>
   );
