@@ -17,7 +17,7 @@ const Project = () => {
 
   return (
     <div className="mb-8">
-      <h1 className="mb-6 text-center text-2xl font-bold md:mb-12 md:text-4xl">
+      <h1 className="mb-6 text-center text-2xl font-bold text-secondary dark:text-gray-200 md:mb-12 md:text-4xl">
         {currProject.title}
       </h1>
       <div className="mb-12 flex items-center justify-center">
