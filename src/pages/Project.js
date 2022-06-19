@@ -6,12 +6,10 @@ const Project = () => {
   const { id } = useParams();
 
   const projIds = projects.map((project) => project.id);
-  let currProject;
 
   if (!projIds.includes(Number(id))) return <div>This page doesn't exist!</div>;
 
-  currProject = projects.find((el) => el.id === Number(id));
-
+  const currProject = projects.find((el) => el.id === Number(id));
   const firstPage = projIds[0];
   const lastPage = projIds[projIds.length - 1];
   const isPrevDisabled = Number(id) - 1 < firstPage;
@@ -37,7 +35,7 @@ const Project = () => {
           })}
         </Carousel>
       </div>
-      <div className="mb-8 p-8 text-gray-500 dark:text-gray-dark md:mb-16 md:px-24 md:text-lg lg:px-32">
+      <div className="mb-8 py-8 px-0 text-justify text-gray-500 dark:text-gray-dark  md:mb-20 md:px-16 md:text-lg lg:px-20 xl:px-24">
         {currProject.body}
         {currProject.body}
         {currProject.body}
@@ -48,31 +46,34 @@ const Project = () => {
         {currProject.body}
         {currProject.body}
       </div>
-      <nav className="mb-16 flex justify-between px-8 md:text-lg">
-        {!isPrevDisabled ? (
-          <Link
-            onClick={(e) => {
-              if (isPrevDisabled) e.preventDefault();
-            }}
-            to={`/project/${Number(id) - 1}`}
-            className="underlined text-[#36a3ff] hover:text-black focus:text-black focus:outline-none dark:hover:text-white dark:focus:text-white"
-          >
-            Previous
-          </Link>
-        ) : (
-          <div></div>
-        )}
+      <nav className="mb-16 flex justify-between md:text-lg">
+        <Link
+          onClick={(e) => {
+            if (isPrevDisabled) e.preventDefault();
+          }}
+          to={!isPrevDisabled ? `/project/${Number(id) - 1}` : "#"}
+          className={
+            !isPrevDisabled
+              ? "underlined text-[#36a3ff] hover:text-black focus:text-black focus:outline-none dark:hover:text-white dark:focus:text-white"
+              : "cursor-not-allowed dark:text-gray-dark"
+          }
+        >
+          Previous
+        </Link>
 
-        {!isNextDisabled ? (
-          <Link
-            to={`/project/${Number(id) + 1}`}
-            className="underlined text-[#36a3ff] hover:text-black focus:text-black focus:outline-none dark:hover:text-white dark:focus:text-white"
-          >
-            Next
-          </Link>
-        ) : (
-          <div></div>
-        )}
+        <Link
+          onClick={(e) => {
+            if (isNextDisabled) e.preventDefault();
+          }}
+          to={!isNextDisabled ? `/project/${Number(id) + 1}` : "#"}
+          className={
+            !isNextDisabled
+              ? "underlined text-[#36a3ff] hover:text-black focus:text-black focus:outline-none dark:hover:text-white dark:focus:text-white"
+              : "cursor-not-allowed dark:text-gray-dark"
+          }
+        >
+          Next
+        </Link>
       </nav>
     </div>
   );

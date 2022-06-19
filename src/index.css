@@ -27,39 +27,27 @@ html {
 }
 
 .underlined {
-  position: relative;
-  padding-bottom: 2px;
-  transition: color 0.1s, background-color 0.1s;
+  @apply relative pb-0.5 transition-colors;
 }
 
 .underlined::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 100%;
-  height: 2px;
-  width: 100%;
-  background-color: #000;
+  @apply absolute top-full block h-0.5
+  w-full bg-black content-[''];
   -webkit-transform-origin: center top;
   transform-origin: center top;
   -webkit-transform: scale(0, 1);
   transform: scale(0, 1);
-  transition: color 0.1s, -webkit-transform 0.2s ease-out;
-  transition: color 0.1s, transform 0.2s ease-out;
   transition: color 0.1s, transform 0.2s ease-out,
     -webkit-transform 0.2s ease-out;
 }
 
-.dark .underlined::before {
+.dark .underlined::before,
+.dark .underlined:active::before {
   background-color: #fff;
 }
 
 .underlined:active::before {
   background-color: #000;
-}
-
-.dark .underlined:active::before {
-  background-color: #fff;
 }
 
 @font-face {
@@ -82,7 +70,6 @@ html {
   font-weight: 500;
   src: local("Segoe UI Semibold");
 }
-
 @font-face {
   font-family: "Segoe UI";
   font-weight: 700;
@@ -102,36 +89,18 @@ html {
 }
 
 .navigation__background {
-  height: 56px;
-  width: 56px;
-  border-radius: 50%;
-  position: fixed;
-  top: 24px;
-  right: 5vw;
-  z-index: 1000;
+  @apply fixed top-6 right-[5vw] z-[1000] h-[56px] w-[56px] rounded-[50%];
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1),
     background 1s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 .navigation__nav {
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1500;
-  opacity: 0;
-  width: 0;
+  @apply fixed top-0 left-0 z-[1500] h-[100vh] w-0 opacity-0;
   transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .navigation__list {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  list-style: none;
-  text-align: center;
-  width: 100%;
+  @apply absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 list-none text-center;
 }
 
 .navigation__item {
@@ -142,13 +111,7 @@ html {
 .navigation__link,
 .navigation__link:link,
 .navigation__link:visited {
-  display: inline-block;
-  font-size: 24px;
-  font-weight: 300;
-  text-decoration: none;
-  text-transform: uppercase;
-  background-size: 220%;
-  transition: all 0.4s;
+  @apply inline-block bg-[length:220%] text-2xl font-light uppercase no-underline transition-all duration-[400ms];
   background-image: linear-gradient(
     120deg,
     transparent 0%,
@@ -175,8 +138,7 @@ html {
 
 .navigation__link:link span,
 .navigation__link:visited span {
-  margin-right: 1.5rem;
-  display: inline-block;
+  @apply mr-6 inline-block;
 }
 
 .navigation__theme-toggler:hover,
@@ -191,16 +153,7 @@ html {
 }
 
 .navigation__button {
-  background-color: transparent;
-  height: 56px;
-  width: 56px;
-  top: 24px;
-  right: 5vw;
-  border-radius: 50%;
-  z-index: 2000;
-  text-align: center;
-  cursor: pointer;
-  position: fixed;
+  @apply fixed top-6 right-[5vw] z-[2000] h-[56px] w-[56px] cursor-pointer rounded-[50%] bg-transparent text-center;
 }
 
 .navigation__checkbox:checked ~ .navigation__background {
@@ -208,27 +161,20 @@ html {
 }
 
 .navigation__checkbox:checked ~ .navigation__nav {
-  opacity: 1;
-  width: 100%;
+  @apply w-full opacity-100;
 }
 
 .navigation__icon {
-  position: relative;
-  margin-top: 26px;
+  @apply relative mt-[26px];
 }
 .navigation__icon,
 .navigation__icon::before,
 .navigation__icon::after {
-  width: 24px;
-  height: 2px;
-  display: inline-block;
+  @apply inline-block h-0.5 w-6;
 }
 .navigation__icon::before,
 .navigation__icon::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  transition: all 0.2s;
+  @apply absolute left-0 transition-all duration-200 content-[''];
 }
 .navigation__icon::before {
   top: -8px;
@@ -242,13 +188,11 @@ html {
 }
 
 .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
-  top: 0;
-  transform: rotate(135deg);
+  @apply top-0 rotate-[135deg];
 }
 
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
-  top: 0;
-  transform: rotate(-135deg);
+  @apply top-0 -rotate-[135deg];
 }
 
 .icon-parent:hover > svg {
@@ -274,7 +218,7 @@ html {
 }
 
 .slider-control-centerleft {
-  @apply -left-[40px] flex h-[36px] w-[36px] shrink-0 items-center justify-center rounded-full border-2 border-transparent outline-none transition md:-left-[74px]  md:h-[50px] md:w-[50px] md:border-gray-200 md:first-letter:hover:border-black md:dark:border-gray-600 md:dark:hover:border-white !important;
+  @apply -left-[40px] flex h-[36px] w-[36px] shrink-0 items-center justify-center rounded-full border-2 border-transparent outline-none transition md:-left-[74px] md:h-[50px] md:w-[50px] md:border-gray-200 md:first-letter:hover:border-black md:dark:border-gray-600 md:dark:hover:border-white !important;
 }
 
 .slider-control-centerright {
@@ -283,12 +227,8 @@ html {
 
 .slider-control-centerleft button,
 .slider-control-centerright button {
-  background-color: transparent !important;
   background-image: url(assets/icons/Arrow.svg) !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  color: transparent !important;
-  @apply h-6 w-6 p-0 md:h-8 md:w-8;
+  @apply h-6 w-6 bg-transparent bg-cover bg-no-repeat p-0 text-transparent md:h-8 md:w-8 !important;
 }
 
 .slider-control-centerleft button {
