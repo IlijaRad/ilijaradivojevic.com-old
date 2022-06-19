@@ -1,19 +1,13 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect } from "react";
 import { SOCIAL_LINKS as links } from "../constants/socialLinks";
+import setTitle from "../helpers/setTitle";
 
 const Contact = () => {
   const { email, gitHub, linkedIn } = links;
-  const [width, setWidth] = useState();
 
-  useLayoutEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [width]);
+  useEffect(() => {
+    setTitle("Contact");
+  }, []);
 
   const ContactLink = ({ text, link, ...restProps }) => {
     return (

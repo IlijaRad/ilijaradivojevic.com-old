@@ -28,7 +28,7 @@ const Card = ({
           <h3 className="mt-2 text-xl font-semibold leading-7 text-black dark:text-white">
             {title}
           </h3>
-          <p className="prose mt-3 text-base leading-6 text-gray-500 line-clamp-4 dark:text-gray-dark">
+          <p className="mt-3 text-base leading-6 text-gray-500 line-clamp-4 dark:text-gray-dark">
             {body}
           </p>
         </div>

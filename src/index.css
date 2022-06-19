@@ -219,7 +219,12 @@ html {
 
 .slider-control-centerleft,
 .slider-control-centerright {
-  @apply flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-transparent bg-[rgba(0,0,0,0.8)] outline-none transition dark:bg-[rgba(0,0,0,0.6)] md:h-[50px] md:w-[50px] md:border-gray-200 md:bg-transparent md:hover:border-black md:dark:border-gray-600 md:dark:bg-transparent md:dark:hover:border-white !important;
+  @apply flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-transparent bg-[rgba(0,0,0,0.8)] outline-none transition dark:bg-[rgba(0,0,0,0.6)] md:h-[50px] md:w-[50px] md:border-gray-200 md:bg-transparent md:dark:border-gray-600 md:dark:bg-transparent !important;
+}
+
+.slider-control-centerleft:not(.disable),
+.slider-control-centerright:not(.disable) {
+  @apply md:hover:border-black md:dark:hover:border-white !important;
 }
 
 .slider-control-centerleft {
