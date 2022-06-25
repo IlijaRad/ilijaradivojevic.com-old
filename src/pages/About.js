@@ -10,7 +10,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="mx-auto mb-24 grid h-auto max-w-7xl grid-cols-4 gap-x-4 md:grid-cols-8 lg:mb-64 lg:min-h-[40rem] lg:grid-cols-12 lg:gap-x-6 lg:pb-12">
+    <div className="mx-auto grid h-auto max-w-7xl grid-cols-4 gap-x-4 md:grid-cols-8 lg:min-h-[40rem] lg:grid-cols-12 lg:gap-x-6 lg:pb-12">
       <div className="lg:-mr-5vw col-span-full mb-12 flex items-center lg:col-span-7 lg:col-start-6 lg:mb-0 lg:-mt-[240px]">
         <DeveloperIllustration />
       </div>
