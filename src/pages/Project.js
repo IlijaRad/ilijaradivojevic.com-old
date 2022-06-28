@@ -1,8 +1,8 @@
 import Carousel from "nuka-carousel";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { projects } from "../constants/projectData";
-import setTitle from "../helpers/setTitle";
+import useTitle from "../hooks/useTitle";
 
 const Project = () => {
   const { id } = useParams();
@@ -11,11 +11,7 @@ const Project = () => {
   const projIds = projects.map((project) => project.id);
   const currProject = projects.find((el) => el.id === Number(id));
 
-  useEffect(() => {
-    if (currProject && currProject.title) {
-      setTitle(currProject.title);
-    }
-  }, [currProject]);
+  useTitle(currProject.title);
 
   if (!projIds.includes(Number(id))) return <div>This page doesn't exist!</div>;
 

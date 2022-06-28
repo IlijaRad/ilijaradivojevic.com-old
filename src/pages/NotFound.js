@@ -1,4 +1,7 @@
+import useTitle from "../hooks/useTitle";
+
 const NotFound = () => {
+  useTitle("Page Not Found");
   return (
     <div className="items-top relative flex min-h-screen justify-center bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
       <div className="mx-auto max-w-xl sm:px-6 lg:px-8">

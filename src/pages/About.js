@@ -1,21 +1,18 @@
 import DeveloperIllustration from "../assets/images/DeveloperIllustration";
 import RightArrow from "../assets/icons/RightArrow";
 import Resume from "../assets/documents/Resume.pdf";
-import { useEffect } from "react";
-import setTitle from "../helpers/setTitle";
+import useTitle from "../hooks/useTitle";
 
 const About = () => {
-  useEffect(() => {
-    setTitle("Ilija Radivojevic");
-  }, []);
+  useTitle("Ilija Radivojevic");
 
   return (
     <div className="mx-auto mb-16 grid h-auto max-w-7xl grid-cols-4 gap-x-4 md:grid-cols-8 lg:min-h-[40rem] lg:grid-cols-12 lg:gap-x-6 lg:pb-12">
-      <div className="lg:-mr-5vw col-span-full mb-12 flex items-center lg:col-span-7 lg:col-start-6 lg:mb-0 lg:-mt-[240px]">
+      <div className="col-span-full mb-12 flex items-center lg:col-span-7 lg:col-start-6 lg:mb-0 lg:-mt-[240px]">
         <DeveloperIllustration />
       </div>
       <div className="col-span-full pt-6 lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:flex lg:h-full lg:flex-col">
-        <h2 className="text-3xl leading-tight text-black dark:text-white md:text-4xl">
+        <h2 className="text-3xl leading-tight md:text-4xl">
           Hi, I am Ilija Radivojević, I am a front-end developer.
         </h2>
         <p className="mt-3 text-3xl leading-tight text-gray-400 dark:text-gray-dark md:text-4xl">
@@ -24,7 +21,7 @@ const About = () => {
         </p>
         <a
           href={Resume}
-          className="text-primary mt-20 inline-flex cursor-pointer items-center text-left font-medium transition focus:outline-none"
+          className="mt-20 inline-flex cursor-pointer items-center text-left font-medium transition focus:outline-none"
           target="_blank"
           rel="noreferrer"
         >

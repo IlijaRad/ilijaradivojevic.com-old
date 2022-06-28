@@ -1,13 +1,10 @@
-import { useEffect } from "react";
 import { SOCIAL_LINKS as links } from "../constants/socialLinks";
-import setTitle from "../helpers/setTitle";
+import useTitle from "../hooks/useTitle";
 
 const Contact = () => {
   const { email, gitHub, linkedIn } = links;
 
-  useEffect(() => {
-    setTitle("Contact");
-  }, []);
+  useTitle("Contact");
 
   const ContactLink = ({ text, link, ...restProps }) => {
     return (
@@ -24,8 +21,8 @@ const Contact = () => {
   };
 
   return (
-    <>
-      <h1 className="mb-10 text-3xl leading-tight sm:text-4xl lg:text-5xl">
+    <div className="mx-auto mb-16 max-w-7xl">
+      <h1 className="mb-10 text-3xl sm:text-4xl lg:text-5xl">
         Contact Information:
       </h1>
       <ul className="md:ml-4">
@@ -45,7 +42,7 @@ const Contact = () => {
           rel="noreferrer"
         />
       </ul>
-    </>
+    </div>
   );
 };
 
