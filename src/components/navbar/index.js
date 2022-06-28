@@ -1,45 +1,13 @@
-import { Link, NavLink } from "react-router-dom";
-import { HOME, PROJECTS, CONTACT } from "../../constants/routes";
-import clsx from "clsx";
+import { Link } from "react-router-dom";
+import { HOME } from "../../constants/routes";
 import ThemeSwitch from "../theme-switch";
 import DarkThemeIcon from "../../assets/icons/DarkThemeIcon";
 import LightThemeIcon from "../../assets/icons/LightThemeIcon";
 import { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-
-const LINKS = [
-  { name: "About", to: HOME },
-  { name: "Projects", to: PROJECTS },
-  { name: "Contact", to: CONTACT },
-];
-
-const DesktopNavLink = ({ to, ...rest }) => (
-  <li className="px-5 py-2">
-    <NavLink
-      className={({ isActive }) => {
-        return clsx(
-          "underlined block whitespace-nowrap text-lg font-medium hover:text-black focus:text-black focus:outline-none active:text-black dark:hover:text-white dark:focus:text-white dark:active:text-white",
-          {
-            "active text-black dark:text-white": isActive,
-            "text-gray-500 dark:text-gray-dark": !isActive,
-          }
-        );
-      }}
-      to={to}
-      {...rest}
-    />
-  </li>
-);
-
-const MobileNavLink = ({ to, ...rest }) => (
-  <li className="navigation__item">
-    <Link
-      className="navigation__link min-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap hover:text-white dark:hover:text-black"
-      to={to}
-      {...rest}
-    />
-  </li>
-);
+import DesktopNavLink from "./DesktopNavLink";
+import MobileNavLink from "./MobileNavLink";
+import { LINKS } from "../../constants/navLinks";
 
 const Navbar = () => {
   const { switched, setSwitched } = useContext(ThemeContext);
@@ -77,20 +45,20 @@ const Navbar = () => {
   };
 
   return (
-    <div className="px-6 py-9 md:px-[5vw] lg:py-12">
+    <div className="py-9 lg:py-12">
       <nav className="mx-auto flex items-center justify-between text-black">
         <div>
           <Link
-            className="underlined block whitespace-nowrap text-2xl font-medium text-black transition focus:outline-none dark:text-white"
+            className="underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none dark:text-white"
             to={HOME}
           >
             <h1 className="text-[26px]">Ilija Radivojevic</h1>
           </Link>
         </div>
         <ul className="hidden lg:flex">
-          {LINKS.map((link) => (
-            <DesktopNavLink key={link.to} to={link.to}>
-              {link.name}
+          {LINKS.map(({ to, name }) => (
+            <DesktopNavLink key={to} to={to}>
+              {name}
             </DesktopNavLink>
           ))}
         </ul>
@@ -127,15 +95,15 @@ const Navbar = () => {
                     : "hidden"
                 }
               >
-                {LINKS.map((link, ix) => (
+                {LINKS.map(({ to, name }) => (
                   <MobileNavLink
-                    key={link.to}
-                    to={link.to}
+                    key={to}
+                    to={to}
                     onClick={() => {
                       if (mobileNavOpen) toggleMobileNav();
                     }}
                   >
-                    {link.name}
+                    {name}
                   </MobileNavLink>
                 ))}
                 <div

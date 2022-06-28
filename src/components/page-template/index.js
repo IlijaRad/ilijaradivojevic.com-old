@@ -4,7 +4,7 @@ import MainContainer from "../main-cotaniner";
 const PageTemplate = ({ children }) => {
   return (
     <div className="flex min-h-screen justify-center bg-white text-black dark:bg-gray-900 dark:text-white">
-      <div className="flex h-full w-full max-w-screen-2xl flex-col">
+      <div className="flex h-full w-full max-w-screen-2xl flex-col px-6 md:px-[5vw]">
         <Navbar />
         <MainContainer>{children}</MainContainer>
       </div>
