@@ -13,7 +13,7 @@ const Card = ({
 }) => {
   return (
     <div
-      onClick={() => (window.location = websiteLink)}
+      onClick={() => window.open(websiteLink, "_blank")}
       className="flex cursor-pointer flex-col overflow-hidden rounded-lg border border-gray-300 bg-gray-100 shadow-lg ring-gray-600 ring-offset-2 ring-offset-white transition-all hover:border-transparent hover:ring-2 dark:border-gray-600 dark:bg-secondary dark:ring-offset-gray-900 dark:hover:ring-gray-300"
     >
       <div className="flex-shrink-0">
@@ -36,6 +36,8 @@ const Card = ({
           <a
             onClick={(e) => e.stopPropagation()}
             href={gitHubLink}
+            target="_blank"
+            rel="noreferrer"
             className="icon-parent mb-4 flex grow items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-center transition hover:border-gray-900 hover:bg-gray-900 hover:text-white dark:border-gray-600 dark:hover:border-white dark:hover:bg-white dark:hover:text-black"
           >
             <GithubIcon className="mr-2 h-5 w-5 fill-black transition-all dark:fill-white" />
