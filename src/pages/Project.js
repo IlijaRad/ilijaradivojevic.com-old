@@ -9,6 +9,7 @@ const Project = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const projIds = projects.map((project) => project.id);
+
   const currProject = projects.find((el) => el.id === Number(id));
 
   useTitle(currProject.title);
@@ -21,7 +22,7 @@ const Project = () => {
   const isNextDisabled = Number(id) + 1 > lastPage;
 
   const isFirstSlide = slideIndex === 0;
-  const isLastSlide = slideIndex === projIds.length - 1;
+  const isLastSlide = slideIndex === currProject.slideImages.length - 1;
 
   const leftArrowContainer = document.querySelector(
     ".slider-control-centerleft"
@@ -46,33 +47,29 @@ const Project = () => {
         {currProject.title}
       </h1>
       <div className="mb-12 flex items-center justify-center">
-        <Carousel
-          autoplay={true}
-          autoplayReverse={true}
-          enableKeyboardControls={true}
-          dragThreshold={0.01}
-          slideIndex={slideIndex}
-          afterSlide={(slideIndex) => setSlideIndex(slideIndex)}
-        >
-          {projects.map(({ id, imgSrc, imgAlt }) => {
-            return (
-              <div key={id} className="flex h-full items-center justify-center">
-                <img src={imgSrc} alt={imgAlt} />
+        {currProject.slideImages.length > 0 && (
+          <Carousel
+            key={currProject.id}
+            autoplay={true}
+            autoplayReverse={true}
+            enableKeyboardControls={true}
+            dragThreshold={0.01}
+            slideIndex={slideIndex}
+            afterSlide={(slideIndex) => setSlideIndex(slideIndex)}
+          >
+            {currProject.slideImages.map((img, ix) => (
+              <div
+                key={`${img}-${ix}`}
+                className="flex h-full items-center justify-center"
+              >
+                <img src={img} alt={img} />
               </div>
-            );
-          })}
-        </Carousel>
+            ))}
+          </Carousel>
+        )}
       </div>
       <div className="mb-8 w-full py-8 px-0 text-gray-500 dark:text-gray-dark  md:mb-20 md:px-16 md:text-lg lg:px-20 xl:px-24">
         <div className="prose max-w-none dark:prose-invert">
-          <p>{currProject.body}</p>
-          <p>{currProject.body}</p>
-          <p>{currProject.body}</p>
-          <p>{currProject.body}</p>
-          <p>{currProject.body}</p>
-          <p>{currProject.body}</p>
-          <p>{currProject.body}</p>
-          <p>{currProject.body}</p>
           <p>{currProject.body}</p>
         </div>
       </div>
