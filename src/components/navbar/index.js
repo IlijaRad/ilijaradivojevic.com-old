@@ -46,10 +46,10 @@ const Navbar = () => {
 
   return (
     <div className="py-9 lg:py-12">
-      <nav className="mx-auto flex items-center justify-between text-black">
+      <nav className="mx-auto flex items-center justify-between">
         <div>
           <Link
-            className="underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none dark:text-white"
+            className="underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none"
             to={HOME}
           >
             <h1 className="text-[26px]">Ilija Radivojevic</h1>
@@ -78,7 +78,7 @@ const Navbar = () => {
             />
             <label
               htmlFor="navi-toggle"
-              className="navigation__button border-2 border-gray-200 text-black outline-none transition hover:border-black peer-focus:border-black dark:border-gray-600 dark:text-white dark:hover:border-white dark:peer-focus:border-white"
+              className="navigation__button border-2 border-gray-200 outline-none transition hover:border-black peer-focus:border-black dark:border-gray-600 dark:hover:border-white dark:peer-focus:border-white"
             >
               <span className="navigation__icon bg-black before:bg-black after:bg-black dark:bg-white dark:before:bg-white dark:after:bg-white">
                 &nbsp;
@@ -90,9 +90,7 @@ const Navbar = () => {
             <nav className="navigation__nav">
               <ul
                 className={
-                  mobileMenuLinksVisible
-                    ? "navigation__list text-black dark:text-white"
-                    : "hidden"
+                  mobileMenuLinksVisible ? "navigation__list" : "hidden"
                 }
               >
                 {LINKS.map(({ to, name }) => (

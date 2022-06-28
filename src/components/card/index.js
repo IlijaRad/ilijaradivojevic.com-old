@@ -25,14 +25,12 @@ const Card = ({
       </div>
       <div className="flex flex-1 flex-col justify-between p-6">
         <div className="flex-1">
-          <h3 className="mt-2 text-xl font-semibold leading-7 text-black dark:text-white">
-            {title}
-          </h3>
-          <p className="mt-3 text-base leading-6 text-gray-500 line-clamp-4 dark:text-gray-dark">
+          <h3 className="mt-2 text-xl font-semibold leading-7">{title}</h3>
+          <p className="mt-3 text-gray-500 line-clamp-4 dark:text-gray-dark">
             {body}
           </p>
         </div>
-        <div className="text-primary mt-6 flex w-full cursor-pointer flex-row flex-wrap items-center justify-between gap-x-4 font-medium transition focus:outline-none">
+        <div className="mt-6 flex w-full cursor-pointer flex-row flex-wrap items-center justify-between gap-x-4 font-medium transition focus:outline-none">
           <a
             onClick={(e) => e.stopPropagation()}
             href={gitHubLink}

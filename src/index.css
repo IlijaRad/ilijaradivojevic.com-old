@@ -103,10 +103,6 @@ html {
   @apply absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 list-none text-center;
 }
 
-.navigation__item {
-  margin: 1rem;
-}
-
 .navigation__theme-toggler,
 .navigation__link,
 .navigation__link:link,
