@@ -8,7 +8,16 @@ const Projects = () => {
   return (
     <div className="mx-auto mb-16 grid max-w-lg gap-x-5 gap-y-7 lg:max-w-none lg:grid-cols-3">
       {projects.map(
-        ({ id, title, body, gitHubLink, websiteLink, imgSrc, imgAlt }) => (
+        ({
+          id,
+          title,
+          body,
+          gitHubLink,
+          websiteLink,
+          imgSrc,
+          imgSrcWebp,
+          imgAlt,
+        }) => (
           <Card
             id={id}
             title={title}
@@ -16,6 +25,7 @@ const Projects = () => {
             gitHubLink={gitHubLink}
             websiteLink={websiteLink}
             imgSrc={imgSrc}
+            imgSrcWebp={imgSrcWebp}
             imgAlt={imgAlt}
             key={id}
           />
