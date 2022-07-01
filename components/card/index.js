@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import GithubIcon from "../../assets/icons/GithubIcon";
-import InfoIcon from "../../assets/icons/InfoIcon";
+import Link from "next/link";
+import GithubIcon from "../../public/assets/icons/GithubIcon";
+import InfoIcon from "../../public/assets/icons/InfoIcon";
 import ImgWithFallback from "../image/ImageWithFallback";
 
 const Card = ({
-  id,
+  slug,
   title,
   body,
   gitHubLink,
@@ -15,7 +15,9 @@ const Card = ({
 }) => {
   return (
     <div
-      onClick={() => window.open(websiteLink, "_blank")}
+      onClick={() => {
+        window.open(websiteLink, "_blank");
+      }}
       className="flex cursor-pointer flex-col overflow-hidden rounded-lg border border-gray-300 bg-gray-100 shadow-lg ring-gray-600 ring-offset-2 ring-offset-white transition-all hover:border-transparent hover:ring-2 dark:border-gray-600 dark:bg-secondary dark:ring-offset-gray-900 dark:hover:ring-gray-300"
     >
       <div className="flex-shrink-0">
@@ -44,13 +46,14 @@ const Card = ({
             <GithubIcon className="mr-2 h-5 w-5 fill-black transition-all dark:fill-white" />
             View source
           </a>
-          <Link
-            onClick={(e) => e.stopPropagation()}
-            to={`/project/${id}`}
-            className="icon-parent-stroke mb-4 flex grow items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-center transition hover:border-gray-900 hover:bg-gray-900 hover:text-white dark:border-gray-600 dark:hover:border-white dark:hover:bg-white  dark:hover:text-black"
-          >
-            <InfoIcon className="mr-2 h-5 w-5 stroke-black transition-all dark:stroke-white" />
-            More Info
+          <Link href={`/project/${slug}`}>
+            <a
+              onClick={(e) => e.stopPropagation()}
+              className="icon-parent-stroke mb-4 flex grow items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-center transition hover:border-gray-900 hover:bg-gray-900 hover:text-white dark:border-gray-600 dark:hover:border-white dark:hover:bg-white dark:hover:text-black"
+            >
+              <InfoIcon className="mr-2 h-5 w-5 stroke-black transition-all dark:stroke-white" />
+              More Info
+            </a>
           </Link>
         </div>
       </div>

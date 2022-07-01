@@ -233,7 +233,7 @@ html {
 
 .slider-control-centerleft button,
 .slider-control-centerright button {
-  @apply h-6 w-6 bg-transparent bg-[url('assets/icons/ArrowWhite.svg')] bg-cover bg-no-repeat p-0 text-transparent md:h-8 md:w-8 md:bg-[url('assets/icons/Arrow.svg')] !important;
+  @apply h-6 w-6 bg-transparent bg-[url('/assets/icons/ArrowWhite.svg')] bg-cover bg-no-repeat p-0 text-transparent md:h-8 md:w-8 md:bg-[url('/assets/icons/Arrow.svg')] !important;
 }
 
 .slider-control-centerleft button {
@@ -246,7 +246,7 @@ html {
 
 .dark .slider-control-centerleft button,
 .dark .slider-control-centerright button {
-  @apply bg-[url('assets/icons/ArrowWhite.svg')] !important;
+  @apply bg-[url('/assets/icons/ArrowWhite.svg')] !important;
 }
 
 .slider-frame,

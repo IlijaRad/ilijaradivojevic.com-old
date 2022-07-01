@@ -1,18 +1,26 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { HOME } from "../../constants/routes";
 import ThemeSwitch from "../theme-switch";
-import DarkThemeIcon from "../../assets/icons/DarkThemeIcon";
-import LightThemeIcon from "../../assets/icons/LightThemeIcon";
-import { useContext, useState, useEffect } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+import DarkThemeIcon from "../../public/assets/icons/DarkThemeIcon";
+import LightThemeIcon from "../../public/assets/icons/LightThemeIcon";
+import { useState, useEffect } from "react";
 import DesktopNavLink from "./DesktopNavLink";
 import MobileNavLink from "./MobileNavLink";
 import { LINKS } from "../../constants/navLinks";
+import { useTheme } from "next-themes";
 
 const Navbar = () => {
-  const { switched, setSwitched } = useContext(ThemeContext);
+  const { systemTheme, theme, setTheme } = useTheme();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [mobileMenuLinksVisible, setMobileMenuLinksVisible] = useState(true);
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -40,9 +48,12 @@ const Navbar = () => {
     setMobileNavOpen((mobileNavOpen) => !mobileNavOpen);
   };
 
-  const toggleSwitched = () => {
-    setSwitched((switched) => !switched);
+  const toggleTheme = () => {
+    if (currentTheme === "dark") setTheme("light");
+    else setTheme("dark");
   };
+
+  if (!mounted) return null;
 
   return (
     <div className="py-9 lg:py-12">
@@ -50,16 +61,14 @@ const Navbar = () => {
         <div>
           <Link
             className="underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none"
-            to={HOME}
+            href={HOME}
           >
             <h1 className="text-[26px]">Ilija Radivojevic</h1>
           </Link>
         </div>
         <ul className="hidden lg:flex">
           {LINKS.map(({ to, name }) => (
-            <DesktopNavLink key={to} to={to}>
-              {name}
-            </DesktopNavLink>
+            <DesktopNavLink key={to} href={to} text={name} />
           ))}
         </ul>
         <div className="hidden items-center justify-center gap-x-1.5 lg:flex">
@@ -96,30 +105,29 @@ const Navbar = () => {
                 {LINKS.map(({ to, name }) => (
                   <MobileNavLink
                     key={to}
-                    to={to}
+                    href={to}
                     onClick={() => {
                       if (mobileNavOpen) toggleMobileNav();
                     }}
-                  >
-                    {name}
-                  </MobileNavLink>
+                    text={name}
+                  />
                 ))}
                 <div
                   onClick={() => {
                     if (mobileNavOpen) {
-                      toggleSwitched();
+                      toggleTheme();
                       toggleMobileNav();
                     }
                   }}
                   className="navigation__theme-toggler -ml-[18px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap hover:text-white dark:hover:text-black"
                 >
                   <div className="flex items-center justify-between py-4 px-8 first:stroke-gray-900 first:hover:stroke-white dark:first:stroke-white dark:first:hover:stroke-gray-900">
-                    {switched ? (
+                    {currentTheme === "dark" ? (
                       <DarkThemeIcon className="mr-4" />
                     ) : (
                       <LightThemeIcon className="mr-4" />
                     )}
-                    {switched ? "Dark" : "Light"} mode
+                    {currentTheme === "dark" ? "Dark" : "Light"} mode
                   </div>
                 </div>
               </ul>
