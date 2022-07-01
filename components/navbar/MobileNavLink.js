@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const MobileNavLink = ({ href, onClick, text, ...rest }) => (
-  <li className="m-4">
+  <div className="m-4">
     <Link href={href} {...rest}>
       <a
         onClick={onClick}
@@ -10,7 +10,7 @@ const MobileNavLink = ({ href, onClick, text, ...rest }) => (
         {text}
       </a>
     </Link>
-  </li>
+  </div>
 );
 
 export default MobileNavLink;

@@ -18,9 +18,7 @@ html {
 @media only screen and (min-width: 720px) {
   .underlined:hover::before,
   .underlined:focus-visible::before,
-  .active::before {
-    -webkit-transform-origin: center top;
-    transform-origin: center top;
+  .underlined.active::before {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
   }
@@ -31,10 +29,7 @@ html {
 }
 
 .underlined::before {
-  @apply absolute top-full block h-0.5
-  w-full bg-black content-[''];
-  -webkit-transform-origin: center top;
-  transform-origin: center top;
+  @apply absolute top-full block h-0.5 left-0 w-full bg-black content-[''];
   -webkit-transform: scale(0, 1);
   transform: scale(0, 1);
   transition: color 0.1s, transform 0.2s ease-out,

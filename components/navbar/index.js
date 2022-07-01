@@ -97,7 +97,7 @@ const Navbar = () => {
               &nbsp;
             </div>
             <nav className="navigation__nav">
-              <ul
+              <div
                 className={
                   mobileMenuLinksVisible ? "navigation__list" : "hidden"
                 }
@@ -130,7 +130,7 @@ const Navbar = () => {
                     {currentTheme === "dark" ? "Dark" : "Light"} mode
                   </div>
                 </div>
-              </ul>
+              </div>
             </nav>
           </div>
         </div>
