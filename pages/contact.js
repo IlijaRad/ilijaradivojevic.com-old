@@ -4,8 +4,6 @@ import Head from "next/head";
 const Contact = () => {
   const { email, gitHub, linkedIn } = links;
 
-  // useTitle("Contact");
-
   const ContactLink = ({ text, link, ...restProps }) => {
     return (
       <li className="mb-3 md:text-lg">

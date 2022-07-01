@@ -45,8 +45,6 @@ const Project = () => {
   const prevLink = projects.find((proj) => proj.id + 1 === id)?.slug;
   const nextLink = projects.find((proj) => proj.id - 1 === id)?.slug;
 
-  console.log(prevLink, firstPage);
-
   return (
     <>
       <Head>
