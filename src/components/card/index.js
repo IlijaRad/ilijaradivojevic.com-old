@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import GithubIcon from "../../assets/icons/GithubIcon";
 import InfoIcon from "../../assets/icons/InfoIcon";
+import ImgWithFallback from "../image/ImageWithFallback";
 
 const Card = ({
   id,
@@ -9,6 +10,7 @@ const Card = ({
   gitHubLink,
   websiteLink,
   imgSrc = "",
+  imgSrcWebp = "",
   imgAlt = "",
 }) => {
   return (
@@ -17,9 +19,10 @@ const Card = ({
       className="flex cursor-pointer flex-col overflow-hidden rounded-lg border border-gray-300 bg-gray-100 shadow-lg ring-gray-600 ring-offset-2 ring-offset-white transition-all hover:border-transparent hover:ring-2 dark:border-gray-600 dark:bg-secondary dark:ring-offset-gray-900 dark:hover:ring-gray-300"
     >
       <div className="flex-shrink-0">
-        <img
+        <ImgWithFallback
           className="h-[200px] w-full border-b border-gray-300 object-cover dark:border-gray-600"
-          src={imgSrc}
+          src={imgSrcWebp}
+          fallback={imgSrc}
           alt={imgAlt}
         />
       </div>

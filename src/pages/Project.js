@@ -1,6 +1,7 @@
 import Carousel from "nuka-carousel";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import ImgWithFallback from "../components/image/ImageWithFallback";
 import { projects } from "../constants/projectData";
 import useTitle from "../hooks/useTitle";
 
@@ -62,7 +63,11 @@ const Project = () => {
                 key={`${img}-${ix}`}
                 className="flex h-full items-center justify-center"
               >
-                <img src={img} alt={img} />
+                <ImgWithFallback
+                  src={img.webp}
+                  fallback={img.png}
+                  alt={img.png}
+                />
               </div>
             ))}
           </Carousel>
