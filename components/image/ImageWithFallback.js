@@ -7,8 +7,8 @@ const ImgWithFallback = ({
 }) => {
   return (
     <picture>
-      <source srcSet={src} type={type} className={className} />
-      <img src={fallback} alt="" className={className} {...delegated} />
+      <source srcSet={src.src} type={type} className={className} />
+      <img src={fallback.src} alt="" className={className} {...delegated} />
     </picture>
   );
 };
