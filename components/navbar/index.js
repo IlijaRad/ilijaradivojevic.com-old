@@ -127,7 +127,7 @@ const Navbar = () => {
                     ) : (
                       <LightThemeIcon className="mr-4" />
                     )}
-                    {currentTheme === "dark" ? "Dark" : "Light"} mode
+                    {currentTheme === "dark" ? "Light" : "Dark"} mode
                   </div>
                 </div>
               </div>
