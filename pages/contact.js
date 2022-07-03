@@ -26,6 +26,10 @@ const Contact = () => {
           name="description"
           content="Get in touch with me by sending an email or a message on linkedin. You can also check out my github and linkedin profiles here."
         />
+        <meta
+          content="Contact, contact Ilija, contact Ilija Radivojevic"
+          name="keywords"
+        ></meta>
       </Head>
       <div className="mx-auto mb-16 max-w-7xl">
         <h1 className="mb-10 text-3xl sm:text-4xl lg:text-5xl">
