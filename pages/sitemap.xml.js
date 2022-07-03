@@ -1,5 +1,5 @@
 const fs = require("fs");
-const path = require("path");
+const process = require("process");
 
 import { projects } from "../constants/projectData";
 
@@ -11,20 +11,18 @@ export const getServerSideProps = async ({ res }) => {
   const BASE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
   const env = process.env.NODE_ENV;
   const isProd = env === "production";
-  const folderPath = isProd ? __dirname : "pages";
-  const removeExtension = isProd ? ".html" : ".js";
+  const folderPath = isProd ? process.cwd() + "/pages" : "pages";
+  const removeExtension = ".js";
 
-  const ignoredPaths = isProd
-    ? ["404.html", "500.html", "project"]
-    : [
-        "_app.js",
-        "_document.js",
-        "sitemap.xml.js",
-        "404.js",
-        "500.js",
-        "project",
-        "_error.js",
-      ];
+  const ignoredPaths = [
+    "_app.js",
+    "_document.js",
+    "sitemap.xml.js",
+    "404.js",
+    "500.js",
+    "project",
+    "_error.js",
+  ];
   const staticPaths = fs.readdirSync(folderPath);
 
   let staticPathsFiltered = staticPaths.filter((staticPage) => {
@@ -44,8 +42,6 @@ export const getServerSideProps = async ({ res }) => {
   staticPathsClean = staticPathsClean.map((staticPagePath) => {
     return `${staticPagePath.replace("index", "")}`;
   });
-
-  console.log(staticPathsClean);
 
   const dynamicPaths = projects.map((project) => {
     return `${BASE_URL}/project/${project.slug}`;
