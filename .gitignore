@@ -29,3 +29,5 @@ yarn-error.log*
 .netlify
 
 .vercel
+
+README.md
