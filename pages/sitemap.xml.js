@@ -1,5 +1,5 @@
 const fs = require("fs");
-const path = require("path");
+const process = require("process");
 
 import { projects } from "../constants/projectData";
 
@@ -11,7 +11,7 @@ export const getServerSideProps = async ({ res }) => {
   const BASE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
   const env = process.env.NODE_ENV;
   const isProd = env === "production";
-  const folderPath = isProd ? __dirname : "pages";
+  const folderPath = isProd ? process.cwd() : "pages";
   const removeExtension = isProd ? ".html" : ".js";
 
   const ignoredPaths = isProd
