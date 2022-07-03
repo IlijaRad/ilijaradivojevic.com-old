@@ -1,4 +1,4 @@
-import * as fs from "fs";
+const fs = require("fs");
 import { projects } from "../constants/projectData";
 
 const Sitemap = () => {
@@ -7,13 +7,14 @@ const Sitemap = () => {
 
 export const getServerSideProps = async ({ res }) => {
   const BASE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
-
+  console.log(BASE_URL);
   const staticPaths = fs
     .readdirSync("pages")
     .filter((staticPage) => {
       return ![
         "sitemap.xml.js",
         "404.js",
+        "500.js",
         "_app.js",
         "_document.js",
         "project",
