@@ -6,8 +6,7 @@ const Sitemap = () => {
 };
 
 export const getServerSideProps = async ({ res }) => {
-  const BASE_URL =
-    process.env.NEXT_PUBLIC_WEBSITE_URL || "http://localhost:3000";
+  const BASE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
 
   const staticPaths = fs
     .readdirSync("pages")
@@ -17,7 +16,6 @@ export const getServerSideProps = async ({ res }) => {
         "404.js",
         "_app.js",
         "_document.js",
-        "api",
         "project",
       ].includes(staticPage);
     })
