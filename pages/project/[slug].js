@@ -63,7 +63,7 @@ const Project = () => {
             <Carousel
               key={currProject.id}
               autoplay={true}
-              autoplayReverse={true}
+              wrapAround={true}
               enableKeyboardControls={true}
               dragThreshold={0.01}
               slideIndex={slideIndex}
