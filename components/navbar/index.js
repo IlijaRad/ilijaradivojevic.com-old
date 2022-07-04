@@ -59,11 +59,10 @@ const Navbar = () => {
     <div className="py-9 lg:py-12">
       <nav className="mx-auto flex items-center justify-between">
         <div>
-          <Link
-            className="underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none"
-            href={HOME}
-          >
-            <h1 className="text-[26px]">Ilija Radivojevic</h1>
+          <Link href={HOME}>
+            <h1 className="underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none">
+              <a className="cursor-pointer text-[26px]">Ilija Radivojevic</a>
+            </h1>
           </Link>
         </div>
         <ul className="hidden lg:flex">

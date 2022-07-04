@@ -18,13 +18,11 @@ import Instagram1 from "../public/assets/images/instagram/png/instagram1.png";
 import Instagram2 from "../public/assets/images/instagram/png/instagram2.png";
 import Instagram3 from "../public/assets/images/instagram/png/instagram3.png";
 import Instagram4 from "../public/assets/images/instagram/png/instagram4.png";
-import Instagram5 from "../public/assets/images/instagram/png/instagram5.png";
 
 import Instagram1Webp from "../public/assets/images/instagram/webp/instagram1.webp";
 import Instagram2Webp from "../public/assets/images/instagram/webp/instagram2.webp";
 import Instagram3Webp from "../public/assets/images/instagram/webp/instagram3.webp";
 import Instagram4Webp from "../public/assets/images/instagram/webp/instagram4.webp";
-import Instagram5Webp from "../public/assets/images/instagram/webp/instagram5.webp";
 
 import Netflix1 from "../public/assets/images/netflix/png/netflix1.png";
 import Netflix2 from "../public/assets/images/netflix/png/netflix2.png";
@@ -120,11 +118,6 @@ export const projects = [
       {
         png: Instagram4,
         webp: Instagram4Webp,
-        alt: "Instagram clone screenshot",
-      },
-      {
-        png: Instagram5,
-        webp: Instagram5Webp,
         alt: "Instagram clone screenshot",
       },
     ],
