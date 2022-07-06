@@ -61,7 +61,9 @@ const Navbar = () => {
         <div>
           <Link href={HOME}>
             <h1 className="underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none">
-              <a className="cursor-pointer text-[26px]">Ilija Radivojevic</a>
+              <a className="cursor-pointer text-2xl md:text-[26px]">
+                Ilija Radivojevic
+              </a>
             </h1>
           </Link>
         </div>

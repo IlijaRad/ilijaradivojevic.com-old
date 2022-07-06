@@ -47,30 +47,30 @@ const Project = () => {
   const prevLink = projects.find((proj) => proj.id + 1 === id)?.slug;
   const nextLink = projects.find((proj) => proj.id - 1 === id)?.slug;
 
+  if (!currProject) return;
+
+  const { title, body, websiteLink, gitHubLink } = currProject;
+
   return (
     <>
       <Head>
-        <title>{currProject.title}</title>
-        <meta name="description" content={currProject.body} />
+        <title>{title}</title>
+        <meta name="description" content={body} />
       </Head>
       <div className="mb-8">
-        <div className="flex justify-center mb-6 md:mb-12">
-          <h1 className="w-fit text-2xl font-bold text-secondary dark:text-gray-200 md:text-4xl relative">
-            {currProject.title}
-            <div className="flex absolute w-full translate-x-full ml-2 top-0">
-              <a
-                href={currProject.websiteLink}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ExternalLink className="h-6 w-6 cursor-pointer mr-1 stroke-secondary dark:stroke-gray-200 hover:-translate-y-0.5 transition-all" />
-              </a>
-
-              <a href={currProject.gitHubLink} target="_blank" rel="noreferrer">
-                <GithubIcon className="cursor-pointer h-6 w-6 fill-secondary transition-all dark:fill-gray-200 hover:-translate-y-0.5" />
-              </a>
-            </div>
+        <div className="flex flex-wrap justify-center mb-6 md:mb-12">
+          <h1 className="translate-x-[26px] md:translate-x-[30px] text-[22px] sm:text-2xl text-center font-bold text-secondary dark:text-gray-200 md:text-4xl">
+            {title}
           </h1>
+          <div className="translate-x-[26px] md:translate-x-[30px] flex ml-2 top-0">
+            <a href={websiteLink} target="_blank" rel="noreferrer">
+              <ExternalLink className="h-5 w-5 md:h-6 md:w-6 cursor-pointer mr-1 stroke-secondary dark:stroke-gray-200 hover:-translate-y-0.5 transition-all" />
+            </a>
+
+            <a href={gitHubLink} target="_blank" rel="noreferrer">
+              <GithubIcon className="cursor-pointer h-5 w-5 md:h-6 md:w-6 fill-secondary transition-all dark:fill-gray-200 hover:-translate-y-0.5" />
+            </a>
+          </div>
         </div>
 
         <div className="mb-12 flex items-center justify-center">
@@ -97,7 +97,7 @@ const Project = () => {
         </div>
         <div className="mb-8 w-full py-8 px-0 text-gray-500 dark:text-gray-dark  md:mb-20 md:px-16 md:text-lg lg:px-20 xl:px-24">
           <div className="prose max-w-none dark:prose-invert">
-            <p>{currProject.body}</p>
+            <p>{body}</p>
           </div>
         </div>
         <nav className="mb-16 flex justify-between md:text-lg">
