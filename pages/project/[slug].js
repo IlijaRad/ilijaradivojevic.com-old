@@ -64,11 +64,11 @@ const Project = () => {
           </h1>
           <div className="translate-x-[26px] md:translate-x-[30px] flex ml-2 top-0">
             <a href={websiteLink} target="_blank" rel="noreferrer">
-              <ExternalLink className="h-5 w-5 md:h-6 md:w-6 cursor-pointer mr-1 stroke-secondary dark:stroke-gray-200 hover:-translate-y-0.5 transition-all" />
+              <ExternalLink className="h-6 w-6 cursor-pointer mr-1 stroke-secondary dark:stroke-gray-200 hover:-translate-y-0.5 transition-all" />
             </a>
 
             <a href={gitHubLink} target="_blank" rel="noreferrer">
-              <GithubIcon className="cursor-pointer h-5 w-5 md:h-6 md:w-6 fill-secondary transition-all dark:fill-gray-200 hover:-translate-y-0.5" />
+              <GithubIcon className="cursor-pointer h-6 w-6 fill-secondary transition-all dark:fill-gray-200 hover:-translate-y-0.5" />
             </a>
           </div>
         </div>
