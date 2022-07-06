@@ -5,6 +5,8 @@ import Link from "next/link";
 import ImgWithFallback from "../../components/image/ImageWithFallback";
 import { projects } from "../../constants/projectData";
 import Head from "next/head";
+import GithubIcon from "../../public/assets/icons/GithubIcon";
+import ExternalLink from "../../public/assets/icons/ExternalLink";
 
 const Project = () => {
   const router = useRouter();
@@ -52,12 +54,25 @@ const Project = () => {
         <meta name="description" content={currProject.body} />
       </Head>
       <div className="mb-8">
-        <h1
-          className="mb-6 text-center
-      text-2xl font-bold text-secondary dark:text-gray-200 md:mb-12 md:text-4xl"
-        >
-          {currProject.title}
-        </h1>
+        <div className="flex justify-center mb-6 md:mb-12">
+          <h1 className="w-fit text-2xl font-bold text-secondary dark:text-gray-200 md:text-4xl relative">
+            {currProject.title}
+            <div className="flex absolute w-full translate-x-full ml-2 top-0">
+              <a
+                href={currProject.websiteLink}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <ExternalLink className="h-6 w-6 cursor-pointer mr-1 stroke-secondary dark:stroke-gray-200 hover:-translate-y-0.5 transition-all" />
+              </a>
+
+              <a href={currProject.gitHubLink} target="_blank" rel="noreferrer">
+                <GithubIcon className="cursor-pointer h-6 w-6 fill-secondary transition-all dark:fill-gray-200 hover:-translate-y-0.5" />
+              </a>
+            </div>
+          </h1>
+        </div>
+
         <div className="mb-12 flex items-center justify-center">
           {currProject.slideImages.length > 0 && (
             <Carousel
@@ -69,16 +84,12 @@ const Project = () => {
               slideIndex={slideIndex}
               afterSlide={(slideIndex) => setSlideIndex(slideIndex)}
             >
-              {currProject.slideImages.map(({webp, png, alt}, ix) => (
+              {currProject.slideImages.map(({ webp, png, alt }, ix) => (
                 <div
                   key={`${alt}-${ix}`}
                   className="flex h-full items-center justify-center"
                 >
-                  <ImgWithFallback
-                    src={webp}
-                    fallback={png}
-                    alt={alt}
-                  />
+                  <ImgWithFallback src={webp} fallback={png} alt={alt} />
                 </div>
               ))}
             </Carousel>
