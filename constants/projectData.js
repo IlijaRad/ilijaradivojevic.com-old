@@ -9,10 +9,12 @@ import GelpImgWebp from "../public/assets/images/gelp/webp/gelp.webp";
 import Gelp1 from "../public/assets/images/gelp/png/gelp1.png";
 import Gelp2 from "../public/assets/images/gelp/png/gelp2.png";
 import Gelp3 from "../public/assets/images/gelp/png/gelp3.png";
+import Gelp4 from "../public/assets/images/gelp/png/gelp4.png";
 
 import Gelp1Webp from "../public/assets/images/gelp/webp/gelp1.webp";
 import Gelp2Webp from "../public/assets/images/gelp/webp/gelp2.webp";
 import Gelp3Webp from "../public/assets/images/gelp/webp/gelp3.webp";
+import Gelp4Webp from "../public/assets/images/gelp/webp/gelp4.webp";
 
 import Instagram1 from "../public/assets/images/instagram/png/instagram1.png";
 import Instagram2 from "../public/assets/images/instagram/png/instagram2.png";
@@ -146,6 +148,11 @@ export const projects = [
       {
         png: Gelp3,
         webp: Gelp3Webp,
+        alt: "Gelp screenshot",
+      },
+      {
+        png: Gelp4,
+        webp: Gelp4Webp,
         alt: "Gelp screenshot",
       },
     ],
