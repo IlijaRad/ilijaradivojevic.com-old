@@ -128,7 +128,7 @@ export const projects = [
     id: 3,
     title: "Gelp",
     slug: "gelp",
-    body: "Restaurant finder app made using React, Styled Components, Material UI, Node, Express, PostgreSQL. The features include creating, viewing, updating, deleting restarants. Writing reviews for every restaurant.",
+    body: "Gelp is an application that connects users with local restaurants. The platform allows users to find the crowds favorite restaurants. The front-end was built using React, for CSS I used Tailwind CSS, back-end was built made using Node, Express and PostgreSQL. On the home page of the app you can see a table that lists all the restaurants that were added by users. The table includes CRUD functionality with bulk delete option. It also includes live searching, sorting, pagination which were all built on the front end with the help of npm package called react-data-sort. If you click on the table row for a particular restaurant it navigates to the reviews page where the users can leave reviews for that particular restaurant. The website is fully responsive and built with the latest technologies. It is maintaned by me and I am updating it from time to time, especially when I come up with a new idea or when a new version of a package gets released. The features I plan on adding are form validations and confirmation pop up modal for deleting table rows.",
     gitHubLink: "https://github.com/IlijaRad/gelp",
     websiteLink: "https://restaurant-finder5.netlify.app/",
     imgSrc: GelpImg,

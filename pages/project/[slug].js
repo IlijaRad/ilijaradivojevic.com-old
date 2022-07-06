@@ -1,5 +1,5 @@
 import Carousel from "nuka-carousel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import ImgWithFallback from "../../components/image/ImageWithFallback";
@@ -7,8 +7,28 @@ import { projects } from "../../constants/projectData";
 import Head from "next/head";
 import GithubIcon from "../../public/assets/icons/GithubIcon";
 import ExternalLink from "../../public/assets/icons/ExternalLink";
+import { getSlugs } from "../../helpers/getSlugs";
+import { getProject } from "../../helpers/getProject";
 
-const Project = () => {
+export const getStaticPaths = async () => {
+  const slugs = await getSlugs();
+  return {
+    paths: slugs.map((slug) => ({
+      params: { slug },
+    })),
+
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params: { slug } }) => {
+  const project = await getProject(slug);
+  return {
+    props: { project },
+  };
+};
+
+const Project = ({ project }) => {
   const router = useRouter();
   const { slug } = router.query;
   const [slideIndex, setSlideIndex] = useState(0);
@@ -30,39 +50,44 @@ const Project = () => {
   const isFirstSlide = slideIndex === 0;
   const isLastSlide = slideIndex === currProject.slideImages.length - 1;
 
-  const leftArrowContainer = document.querySelector(
-    ".slider-control-centerleft"
-  );
-  const rightArrowContainer = document.querySelector(
-    ".slider-control-centerright"
-  );
+  useEffect(() => {
+    let leftArrowContainer;
+    let rightArrowContainer;
 
-  if (leftArrowContainer && rightArrowContainer) {
-    if (isFirstSlide) leftArrowContainer.classList.add("disable");
-    else leftArrowContainer.classList.remove("disable");
-    if (isLastSlide) rightArrowContainer.classList.add("disable");
-    else rightArrowContainer.classList.remove("disable");
-  }
+    if (typeof window !== "undefined") {
+      leftArrowContainer = document.querySelector(".slider-control-centerleft");
+      rightArrowContainer = document.querySelector(
+        ".slider-control-centerright"
+      );
+    }
+
+    if (leftArrowContainer && rightArrowContainer) {
+      if (isFirstSlide) leftArrowContainer.classList.add("disable");
+      else leftArrowContainer.classList.remove("disable");
+      if (isLastSlide) rightArrowContainer.classList.add("disable");
+      else rightArrowContainer.classList.remove("disable");
+    }
+  }, []);
 
   const prevLink = projects.find((proj) => proj.id + 1 === id)?.slug;
   const nextLink = projects.find((proj) => proj.id - 1 === id)?.slug;
 
   if (!currProject) return;
 
-  const { title, body, websiteLink, gitHubLink } = currProject;
+  const { title, websiteLink, gitHubLink } = currProject;
 
   return (
     <>
       <Head>
         <title>{title}</title>
-        <meta name="description" content={body} />
+        <meta name="description" content={project.body} />
       </Head>
       <div className="mb-8">
         <div className="flex flex-wrap justify-center mb-6 md:mb-12">
-          <h1 className="translate-x-[26px] md:translate-x-[30px] text-[22px] sm:text-2xl text-center font-bold text-secondary dark:text-gray-200 md:text-4xl">
+          <h1 className="translate-x-[30px] text-[22px] sm:text-2xl text-center font-bold text-secondary dark:text-gray-200 md:text-4xl">
             {title}
           </h1>
-          <div className="translate-x-[26px] md:translate-x-[30px] flex ml-2 top-0">
+          <div className="translate-x-[30px] flex ml-2 top-0">
             <a href={websiteLink} target="_blank" rel="noreferrer">
               <ExternalLink className="h-6 w-6 cursor-pointer mr-1 stroke-secondary dark:stroke-gray-200 hover:-translate-y-0.5 transition-all" />
             </a>
@@ -97,7 +122,7 @@ const Project = () => {
         </div>
         <div className="mb-8 w-full py-8 px-0 text-gray-500 dark:text-gray-dark  md:mb-20 md:px-16 md:text-lg lg:px-20 xl:px-24">
           <div className="prose max-w-none dark:prose-invert">
-            <p>{body}</p>
+            <div dangerouslySetInnerHTML={{ __html: project.body }}></div>
           </div>
         </div>
         <nav className="mb-16 flex justify-between md:text-lg">
