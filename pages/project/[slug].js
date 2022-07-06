@@ -69,15 +69,15 @@ const Project = () => {
               slideIndex={slideIndex}
               afterSlide={(slideIndex) => setSlideIndex(slideIndex)}
             >
-              {currProject.slideImages.map((img, ix) => (
+              {currProject.slideImages.map(({webp, png, alt}, ix) => (
                 <div
-                  key={`${img}-${ix}`}
+                  key={`${alt}-${ix}`}
                   className="flex h-full items-center justify-center"
                 >
                   <ImgWithFallback
-                    src={img.webp}
-                    fallback={img.png}
-                    alt={img.alt}
+                    src={webp}
+                    fallback={png}
+                    alt={alt}
                   />
                 </div>
               ))}
