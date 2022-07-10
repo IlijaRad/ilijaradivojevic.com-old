@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import Navbar from "../components/navbar";
-import MainContainer from "../components/main-cotaniner";
+import MainContainer from "../components/main-container";
 import { ThemeProvider } from "next-themes";
 import { useRouter } from "next/router";
 import Head from "next/head";
