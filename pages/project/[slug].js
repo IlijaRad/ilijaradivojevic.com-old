@@ -47,28 +47,6 @@ const Project = ({ project }) => {
   const isPrevDisabled = Number(id) - 1 < firstPage;
   const isNextDisabled = Number(id) + 1 > lastPage;
 
-  const isFirstSlide = slideIndex === 0;
-  const isLastSlide = slideIndex === currProject.slideImages.length - 1;
-
-  useEffect(() => {
-    let leftArrowContainer;
-    let rightArrowContainer;
-
-    if (typeof window !== "undefined") {
-      leftArrowContainer = document.querySelector(".slider-control-centerleft");
-      rightArrowContainer = document.querySelector(
-        ".slider-control-centerright"
-      );
-    }
-
-    if (leftArrowContainer && rightArrowContainer) {
-      if (isFirstSlide) leftArrowContainer.classList.add("disable");
-      else leftArrowContainer.classList.remove("disable");
-      if (isLastSlide) rightArrowContainer.classList.add("disable");
-      else rightArrowContainer.classList.remove("disable");
-    }
-  }, []);
-
   const prevLink = projects.find((proj) => proj.id + 1 === id)?.slug;
   const nextLink = projects.find((proj) => proj.id - 1 === id)?.slug;
 
@@ -83,17 +61,17 @@ const Project = ({ project }) => {
         <meta name="description" content={project.body} />
       </Head>
       <div className="mb-8">
-        <div className="flex flex-wrap justify-center mb-6 md:mb-12">
-          <h1 className="translate-x-[30px] text-[22px] sm:text-2xl text-center font-bold text-secondary dark:text-gray-200 md:text-4xl">
+        <div className="mb-6 flex flex-wrap justify-center md:mb-12">
+          <h1 className="translate-x-[30px] text-center text-[22px] font-bold text-secondary dark:text-gray-200 sm:text-2xl md:text-4xl">
             {title}
           </h1>
-          <div className="translate-x-[30px] flex ml-2 top-0">
+          <div className="top-0 ml-2 flex translate-x-[30px]">
             <a href={websiteLink} target="_blank" rel="noreferrer">
-              <ExternalLink className="h-6 w-6 cursor-pointer mr-1 stroke-secondary dark:stroke-gray-200 hover:-translate-y-0.5 transition-all" />
+              <ExternalLink className="mr-1 h-6 w-6 cursor-pointer stroke-secondary transition-all hover:-translate-y-0.5 dark:stroke-gray-200" />
             </a>
 
             <a href={gitHubLink} target="_blank" rel="noreferrer">
-              <GithubIcon className="cursor-pointer h-6 w-6 fill-secondary transition-all dark:fill-gray-200 hover:-translate-y-0.5" />
+              <GithubIcon className="h-6 w-6 cursor-pointer fill-secondary transition-all hover:-translate-y-0.5 dark:fill-gray-200" />
             </a>
           </div>
         </div>
@@ -101,10 +79,11 @@ const Project = ({ project }) => {
         <div className="mb-12 flex items-center justify-center">
           {currProject.slideImages.length > 0 && (
             <Carousel
-              key={currProject.id}
               autoplay={true}
-              wrapAround={true}
+              key={currProject.id}
               enableKeyboardControls={true}
+              disableAnimation={true}
+              wrapAround={true}
               dragThreshold={0.01}
               slideIndex={slideIndex}
               afterSlide={(slideIndex) => setSlideIndex(slideIndex)}
