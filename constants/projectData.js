@@ -53,6 +53,7 @@ export const projects = [
     imgSrc: NetflixImg,
     imgSrcWebp: NetflixImgWebp,
     imgAlt: "Netflix Clone picture",
+    createdAt: "30 Jan 2021",
     slideImages: [
       {
         png: Netflix1,
@@ -101,6 +102,7 @@ export const projects = [
     imgSrc: InstagramImg,
     imgSrcWebp: InstagramImgWebp,
     imgAlt: "Instagram Clone picture",
+    createdAt: "30 May 2021",
     slideImages: [
       {
         png: Instagram1,
@@ -134,6 +136,7 @@ export const projects = [
     imgSrc: GelpImg,
     imgSrcWebp: GelpImgWebp,
     imgAlt: "Gelp picture",
+    createdAt: "27 October 2021",
     slideImages: [
       {
         png: Gelp1,

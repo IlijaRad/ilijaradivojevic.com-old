@@ -104,7 +104,7 @@ const Project = ({ project }) => {
             <div dangerouslySetInnerHTML={{ __html: project.body }}></div>
           </div>
         </div>
-        <nav className="mb-16 flex justify-between md:text-lg">
+        <nav className="mb-16 flex flex-col gap-y-8 px-0 md:px-16 md:text-lg lg:px-20 xl:px-24">
           <Link
             href={!isPrevDisabled && prevLink ? `/project/${prevLink}` : "#"}
           >
@@ -114,14 +114,25 @@ const Project = ({ project }) => {
               }}
               className={
                 !isPrevDisabled
-                  ? "underlined text-[#36a3ff] hover:text-black focus:text-black focus:outline-none dark:hover:text-white dark:focus:text-white"
-                  : "cursor-not-allowed text-gray-500 dark:text-gray-dark"
+                  ? "rounded-md border border-gray-300 p-6 transition-all duration-300 ease-in-out hover:bg-gray-100/90 dark:border-gray-600 dark:hover:bg-gray-100/5"
+                  : "hidden"
               }
             >
-              Previous
+              <div>
+                <div className="text-sm text-gray-800 dark:text-gray-400">
+                  Last post
+                </div>
+                <div className="mt-4">
+                  {projects.length > 0 &&
+                    projects.find((proj) => proj.id === id - 1)?.title}
+                </div>
+                <div className="text-xs text-gray-800 dark:text-gray-400">
+                  {projects.length > 0 &&
+                    projects.find((proj) => proj.id === id - 1)?.createdAt}
+                </div>
+              </div>
             </a>
           </Link>
-
           <Link
             href={!isNextDisabled && nextLink ? `/project/${nextLink}` : "#"}
           >
@@ -131,11 +142,23 @@ const Project = ({ project }) => {
               }}
               className={
                 !isNextDisabled
-                  ? "underlined text-[#36a3ff] hover:text-black focus:text-black focus:outline-none dark:hover:text-white dark:focus:text-white"
-                  : "cursor-not-allowed text-gray-500 dark:text-gray-dark"
+                  ? "rounded-md border border-gray-300 p-6 text-right transition-all duration-300 ease-in-out hover:bg-gray-100/90 dark:border-gray-600 dark:hover:bg-gray-100/5"
+                  : "hidden"
               }
             >
-              Next
+              <div>
+                <div className="text-sm text-gray-800 dark:text-gray-400">
+                  Next post
+                </div>
+                <div className="mt-4">
+                  {projects.length > 0 &&
+                    projects.find((proj) => proj.id === id + 1)?.title}
+                </div>
+                <div className="text-xs text-gray-800 dark:text-gray-400">
+                  {projects.length > 0 &&
+                    projects.find((proj) => proj.id === id + 1)?.createdAt}
+                </div>
+              </div>
             </a>
           </Link>
         </nav>
