@@ -90,11 +90,11 @@ const Navbar = () => {
               htmlFor="navi-toggle"
               className="navigation__button border-2 border-gray-200 outline-none transition hover:border-black peer-focus:border-black dark:border-gray-600 dark:hover:border-white dark:peer-focus:border-white"
             >
-              <span className="navigation__icon bg-black before:bg-black after:bg-black dark:bg-white dark:before:bg-white dark:after:bg-white">
+              <span className="navigation__icon select-none bg-black before:bg-black after:bg-black dark:bg-white dark:before:bg-white dark:after:bg-white">
                 &nbsp;
               </span>
             </label>
-            <div className={"navigation__background bg-white dark:bg-gray-900"}>
+            <div className="navigation__background select-none bg-white dark:bg-gray-900">
               &nbsp;
             </div>
             <nav className="navigation__nav">
