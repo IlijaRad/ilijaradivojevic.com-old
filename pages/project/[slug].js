@@ -1,5 +1,5 @@
 import Carousel from "nuka-carousel";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import ImgWithFallback from "../../components/image/ImageWithFallback";

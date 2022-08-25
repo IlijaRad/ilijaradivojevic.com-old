@@ -7,7 +7,6 @@ export const getProject = async (slug) => {
   const { content } = matter(source);
   const html = marked(content);
   return {
-    // title: data.title,
     body: html,
   };
 };
