@@ -59,13 +59,13 @@ const Navbar = () => {
     <div className="py-9 lg:py-12">
       <nav className="mx-auto flex items-center justify-between">
         <div>
-          <Link href={HOME}>
-            <h1 className="underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none">
-              <a className="cursor-pointer text-2xl md:text-[26px]">
+          <h1>
+            <Link href={HOME} passHref>
+              <a className="underlined cursor-pointer text-2xl font-medium transition focus:outline-none md:text-[26px]">
                 Ilija Radivojevic
               </a>
-            </h1>
-          </Link>
+            </Link>
+          </h1>
         </div>
         <ul className="hidden lg:flex">
           {LINKS.map(({ to, name }) => (

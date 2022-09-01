@@ -29,7 +29,7 @@ html {
 }
 
 .underlined::before {
-  @apply absolute top-full block h-0.5 left-0 w-full bg-black content-[''];
+  @apply absolute top-full left-0 block h-0.5 w-full bg-black content-[''];
   -webkit-transform: scale(0, 1);
   transform: scale(0, 1);
   transition: color 0.1s, transform 0.2s ease-out,
@@ -43,44 +43,6 @@ html {
 
 .underlined:active::before {
   background-color: #000;
-}
-
-@font-face {
-  font-family: "Segoe UI";
-  font-weight: 200;
-  src: local("Segoe UI Light");
-}
-@font-face {
-  font-family: "Segoe UI";
-  font-weight: 300;
-  src: local("Segoe UI Semilight");
-}
-@font-face {
-  font-family: "Segoe UI";
-  font-weight: 400;
-  src: local("Segoe UI");
-}
-@font-face {
-  font-family: "Segoe UI";
-  font-weight: 500;
-  src: local("Segoe UI Semibold");
-}
-@font-face {
-  font-family: "Segoe UI";
-  font-weight: 700;
-  src: local("Segoe UI Bold");
-}
-@font-face {
-  font-family: "Segoe UI";
-  font-style: italic;
-  font-weight: 400;
-  src: local("Segoe UI Italic");
-}
-@font-face {
-  font-family: "Segoe UI";
-  font-style: italic;
-  font-weight: 700;
-  src: local("Segoe UI Bold Italic");
 }
 
 .navigation__background {
