@@ -1,6 +1,6 @@
 import DeveloperIllustration from "../public/assets/images/DeveloperIllustration";
-import RightArrow from "../public/assets/icons/RightArrow";
 import Head from "next/head";
+import { ArrowLink } from "../components/arrow-button";
 
 const About = () => {
   return (
@@ -28,19 +28,17 @@ const About = () => {
             I build front-ends with simple modern UIs using latest web
             technologies.
           </p>
-          <a
+
+          <ArrowLink
             href="/assets/documents/Resume.pdf"
-            className="mt-20 inline-flex cursor-pointer items-center text-left font-medium transition focus:outline-none"
+            direction="right"
+            className="mt-20"
+            prefetch="intent"
             target="_blank"
             rel="noreferrer"
           >
-            <span className="peer mr-8 text-xl font-medium">
-              You can find my resume here
-            </span>
-            <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full border-2 border-gray-200 outline-none transition hover:border-black peer-hover:border-black dark:border-gray-600 dark:hover:border-white dark:peer-hover:border-white">
-              <RightArrow />
-            </div>
-          </a>
+            You can find my resume here
+          </ArrowLink>
         </div>
       </div>
     </>
