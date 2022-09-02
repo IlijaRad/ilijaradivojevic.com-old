@@ -114,7 +114,7 @@ const Project = ({ project }) => {
               }}
               className={
                 !isPrevDisabled
-                  ? "rounded-md border border-gray-300 p-6 transition-all duration-300 ease-in-out hover:bg-gray-100/90 dark:border-gray-600 dark:hover:bg-gray-100/5"
+                  ? "rounded-md border border-gray-300 p-6 transition-all duration-300 ease-in-out hover:bg-gray-100/90 focus:bg-gray-100/90 focus:outline-none dark:border-gray-600 dark:hover:bg-gray-100/5 dark:focus:bg-gray-100/5"
                   : "hidden"
               }
             >
@@ -142,7 +142,7 @@ const Project = ({ project }) => {
               }}
               className={
                 !isNextDisabled
-                  ? "rounded-md border border-gray-300 p-6 text-right transition-all duration-300 ease-in-out hover:bg-gray-100/90 dark:border-gray-600 dark:hover:bg-gray-100/5"
+                  ? "rounded-md border border-gray-300 p-6 text-right transition-all duration-300 ease-in-out hover:bg-gray-100/90 focus:bg-gray-100/90 focus:outline-none dark:border-gray-600 dark:hover:bg-gray-100/5 dark:focus:bg-gray-100/5"
                   : "hidden"
               }
             >
