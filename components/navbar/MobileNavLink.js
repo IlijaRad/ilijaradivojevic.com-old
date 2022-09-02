@@ -5,7 +5,7 @@ const MobileNavLink = ({ href, onClick, text, ...rest }) => (
     <Link href={href} {...rest}>
       <a
         onClick={onClick}
-        className="navigation__link min-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap hover:text-white dark:hover:text-black"
+        className="navigation__link focus min-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap hover:text-white focus:text-white dark:hover:text-black dark:focus:text-black"
       >
         {text}
       </a>
