@@ -80,8 +80,13 @@ const Navbar = () => {
         <div className="lg:hidden">
           <div className="navigation">
             <input
+              onKeyUp={(e) => {
+                if (e.key === "Enter") {
+                  e.target.click();
+                }
+              }}
               type="checkbox"
-              className="navigation__checkbox peer"
+              className="navigation__checkbox peer pointer-events-none opacity-0"
               id="navi-toggle"
               checked={mobileNavOpen}
               onChange={() => toggleMobileNav()}
@@ -113,24 +118,24 @@ const Navbar = () => {
                     text={name}
                   />
                 ))}
-                <div
+                <button
                   onClick={() => {
                     if (mobileNavOpen) {
                       toggleTheme();
                       toggleMobileNav();
                     }
                   }}
-                  className="navigation__theme-toggler -ml-[18px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap hover:text-white dark:hover:text-black"
+                  className="navigation__theme-toggler group -ml-[18px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap hover:text-white focus:text-white dark:hover:text-black dark:focus:text-black"
                 >
-                  <div className="flex items-center justify-between py-4 px-8 first:stroke-gray-900 first:hover:stroke-white dark:first:stroke-white dark:first:hover:stroke-gray-900">
+                  <div className="flex items-center justify-between py-4 px-8 first:stroke-gray-900 first:hover:stroke-white group-focus:first:stroke-white dark:first:stroke-white dark:first:hover:stroke-gray-900 dark:group-focus:first:stroke-black">
                     {currentTheme === "dark" ? (
-                      <DarkThemeIcon className="mr-4" />
+                      <DarkThemeIcon className="mr-4 transition" />
                     ) : (
-                      <LightThemeIcon className="mr-4" />
+                      <LightThemeIcon className="mr-4 transition" />
                     )}
                     {currentTheme === "dark" ? "Light" : "Dark"} mode
                   </div>
-                </div>
+                </button>
               </div>
             </nav>
           </div>

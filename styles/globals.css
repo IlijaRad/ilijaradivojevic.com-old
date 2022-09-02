@@ -64,7 +64,7 @@ html {
 .navigation__link,
 .navigation__link:link,
 .navigation__link:visited {
-  @apply inline-block bg-[length:220%] text-2xl font-light uppercase no-underline transition-all duration-[400ms];
+  @apply inline-block bg-[length:220%] text-2xl font-light uppercase no-underline outline-none transition-all duration-[400ms];
   background-image: linear-gradient(
     120deg,
     transparent 0%,
@@ -95,14 +95,12 @@ html {
 }
 
 .navigation__theme-toggler:hover,
+.navigation__theme-toggler:focus,
 .navigation__link:hover,
-.navigation__link:active {
+.navigation__link:active,
+.navigation__link:focus-visible {
   background-position: 100%;
   transform: translateX(1rem);
-}
-
-.navigation__checkbox {
-  display: none;
 }
 
 .navigation__button {

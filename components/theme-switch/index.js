@@ -15,9 +15,14 @@ export default function ThemeSwitch() {
   return (
     <Switch
       checked={darkMode}
+      onKeyUp={(e) => {
+        if (e.key === "Enter") {
+          e.target.click();
+        }
+      }}
       onChange={() => setTimeout(() => toggleTheme(), 300)}
       className={clsx(
-        "relative inline-flex h-7 w-[54px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75",
+        "relative inline-flex h-7 w-[54px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-opacity-75 dark:focus-visible:ring-white",
         {
           "bg-gray-900 dark:bg-gray-300/20": darkMode,
           "bg-gray-200": !darkMode,

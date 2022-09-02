@@ -10,7 +10,7 @@ const Contact = () => {
         <span className="font-medium">{text}</span>
         <a
           {...restProps}
-          className="underlined ml-1 overflow-hidden text-gray-500 transition hover:text-black focus:outline-none dark:text-gray-dark dark:hover:text-white"
+          className="underlined ml-1 overflow-hidden text-gray-500 transition hover:text-black focus:text-black focus:outline-none dark:text-gray-dark dark:hover:text-white dark:focus:text-white"
         >
           {link}
         </a>
