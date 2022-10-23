@@ -36,16 +36,19 @@ const Card = ({
           </p>
         </div>
         <div className="mt-6 flex w-full cursor-pointer flex-row flex-wrap items-center justify-between gap-x-4 font-medium transition focus:outline-none">
-          <a
-            onClick={(e) => e.stopPropagation()}
-            href={gitHubLink}
-            target="_blank"
-            rel="noreferrer"
-            className="icon-parent mb-4 flex grow items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-center transition hover:border-gray-900 hover:bg-gray-900 hover:text-white focus:border-gray-900 focus:outline-none dark:border-gray-600 dark:hover:border-white dark:hover:bg-white dark:hover:text-black dark:focus:border-white"
-          >
-            <GithubIcon className="mr-2 h-5 w-5 fill-black transition-all dark:fill-white" />
-            View source
-          </a>
+          {gitHubLink ? (
+            <a
+              onClick={(e) => e.stopPropagation()}
+              href={gitHubLink}
+              target="_blank"
+              rel="noreferrer"
+              className="icon-parent mb-4 flex grow items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-center transition hover:border-gray-900 hover:bg-gray-900 hover:text-white focus:border-gray-900 focus:outline-none dark:border-gray-600 dark:hover:border-white dark:hover:bg-white dark:hover:text-black dark:focus:border-white"
+            >
+              <GithubIcon className="mr-2 h-5 w-5 fill-black transition-all dark:fill-white" />
+              View source
+            </a>
+          ) : null}
+
           <Link href={`/project/${slug}`}>
             <a
               onClick={(e) => e.stopPropagation()}
