@@ -61,11 +61,11 @@ const Project = ({ project }) => {
         <meta name="description" content={project.body} />
       </Head>
       <div className="mb-8">
-        <div className="mb-6 flex flex-wrap justify-center md:mb-12">
-          <h1 className="translate-x-[30px] text-center text-[22px] font-bold text-secondary dark:text-gray-200 sm:text-2xl md:text-4xl">
+        <div className="mb-6 flex flex-wrap justify-center gap-x-2 md:mb-12">
+          <h1 className="text-center text-[22px] font-bold text-secondary dark:text-gray-200 sm:text-2xl md:text-4xl">
             {title}
           </h1>
-          <div className="top-0 ml-2 flex translate-x-[30px]">
+          <div className="top-0 flex">
             <a href={websiteLink} target="_blank" rel="noreferrer">
               <ExternalLink className="mr-1 h-6 w-6 cursor-pointer stroke-secondary transition-all hover:-translate-y-0.5 dark:stroke-gray-200" />
             </a>

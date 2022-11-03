@@ -1,4 +1,4 @@
-This is a website with a self explanatory title.
+Watch your favourite movies and tv shows for free.
 
 Login for testing purposes:
 

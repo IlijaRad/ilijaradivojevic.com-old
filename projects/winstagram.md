@@ -1,4 +1,4 @@
-This is a website with a self explanatory title.
+Your favourite social media website that will help you meet new people and save the memories of the best moments of your life.
 
 Login for testing purposes:
 
